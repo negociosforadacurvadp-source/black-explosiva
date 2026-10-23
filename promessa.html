@@ -119,17 +119,16 @@ section{padding:clamp(64px,10vw,104px) 0;position:relative}
 .dates .hot{border-color:var(--red)}
 
 /* primeira dobra só com a promessa */
-.hero-promessa .wrap{text-align:left;justify-items:stretch;align-items:center}
-@media (min-width:960px){.hero-promessa .wrap{grid-template-columns:1.1fr .9fr;gap:48px}}
-.promessa-txt{display:grid;gap:clamp(16px,2.4vw,22px);justify-items:start}
-.hero-promessa .kicker{justify-content:flex-start}
-.hero-promessa h1{max-width:none}
-.promessa-lista{margin-top:2px}
-.promessa-cta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
-.promessa-cta .note{margin:0}
-.hero-promessa .dates{justify-content:flex-start}
-.promessa-foto img{width:100%;height:auto;aspect-ratio:1080/567;object-fit:cover;border-radius:20px;border:3px solid #f2c230;box-shadow:0 0 60px -12px rgba(217,191,140,.4),0 30px 60px -30px #000}
-@media (max-width:959px){.promessa-foto{width:100%;max-width:560px}.hero-promessa .wrap{text-align:center;justify-items:center}.promessa-txt{justify-items:center}.hero-promessa .kicker,.hero-promessa .dates,.promessa-cta{justify-content:center}.promessa-lista{text-align:left}}
+.hero-promessa{min-height:min(100svh - 60px,860px);display:grid;align-items:center;padding:clamp(40px,7vw,88px) 0;
+  background:linear-gradient(180deg,#02040a 0%,#07142e 55%,#0a1c3f 100%)}
+.hero-promessa::before{background:radial-gradient(55% 45% at 50% 30%,rgba(40,90,190,.14),transparent 70%)}
+.hero-promessa .wrap{gap:clamp(20px,3.2vw,30px);max-width:880px}
+.id-metodo{font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#8fa6cf}
+.logo-hero{width:min(300px,62vw);height:auto;margin-block:clamp(2px,1vw,10px)}
+.hero-promessa h1{max-width:20ch;font-size:clamp(2rem,5.6vw,3.6rem)}
+.hero-promessa .sub{color:#b5c2dc;max-width:46ch;font-size:clamp(1rem,2vw,1.2rem)}
+.hero-promessa .btn{margin-top:clamp(6px,1.5vw,12px);padding:0 38px;min-height:60px;box-shadow:0 10px 30px -10px rgba(217,191,140,.35),inset 0 1px 0 rgba(255,255,255,.6)}
+.hero-promessa :focus-visible{outline-color:#8fb2ff}
 /* conteúdo travado até 80% do vídeo */
 html.js #resto.travado{display:none}
 .revisao #resto.travado{display:block}
@@ -274,27 +273,11 @@ html:not(.js) .rv{opacity:1;transform:none}
   <!-- 1. PRIMEIRA DOBRA: PROMESSA (versão sem vídeo) -->
   <section class="hero hero-promessa" aria-labelledby="h1">
     <div class="wrap">
-      <div class="promessa-txt">
-        <div class="kicker"><span class="tag">Online</span><span>Método Black Friday Explosiva · com Daniel Pereira</span></div>
-        <h1 id="h1">Seu negócio vai passar mais uma Black Friday <em>sem fila na porta?</em></h1>
-        <p class="sub rascunho">Veja o método que fez uma loja local faturar em 1 dia o que fatura em 1 mês. <strong>Aplique no seu negócio ou ofereça como serviço para negócios da sua cidade.</strong></p>
-        <ul class="check promessa-lista">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Passo a passo em 4 fases, do D-21 ao D+7</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Aulas gravadas + aula final ao vivo com o Daniel em 27/10</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Roteiros e modelos prontos para aplicar já nesta Black Friday</span></li>
-        </ul>
-        <div class="promessa-cta">
-          <a class="btn js-cta js-buy" data-pos="hero" href="#oferta">Quero o método por R$67
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <span class="note">Garantia de 7 dias · acesso imediato</span>
-        </div>
-        <div class="dates">
-          <span>Aula ao vivo: <b>27/10</b></span>
-          <span class="hot">Vendas até <b>05/11</b></span>
-          <span>Black Friday: <b>27/11</b></span>
-        </div>
-      </div>
-      <div class="promessa-foto"><img src="assets/img/og.jpg" alt="Daniel Pereira, criador do Método Black Friday Explosiva" width="1080" height="567" fetchpriority="high"></div>
+      <p class="id-metodo">Método Black Friday Explosiva · com Daniel Pereira</p>
+      <img class="logo-hero" src="assets/img/logo-black-friday-explosiva.png" alt="Black Friday Explosiva" width="960" height="402" fetchpriority="high">
+      <h1 id="h1">Seu negócio vai passar mais uma Black Friday <em>sem fila na porta?</em></h1>
+      <p class="sub rascunho">Descubra como uma loja local faturou em 1 dia o equivalente a 1 mês e aprenda a aplicar a estratégia nesta Black Friday.</p>
+      <a class="btn js-cta js-buy" data-pos="hero" href="#oferta">Quero aplicar o método</a>
     </div>
   </section>
 
