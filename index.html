@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Método Black Friday Explosiva · com Daniel Pereira</title>
+<meta name="description" content="Método online para lotar seu negócio local na Black Friday, ou vender a campanha como serviço na sua cidade. Aulas gravadas e aula final ao vivo com Daniel Pereira.">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Método Black Friday Explosiva · com Daniel Pereira">
+<meta property="og:description" content="Seu negócio vai passar mais uma Black Friday sem fila na porta?">
+<meta property="og:image" content="assets/img/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --bg:#050505; --bg-2:#0c0b09; --line:#2a2620; --line-2:#3a342a;
+  --ink:#f5efe3; --muted:#a8a091; --gold-1:#f6ead0; --gold-2:#d9bf8c; --gold-3:#a8834c;
+  --green:#1fbf4b; --red:#e3262f;
+  --gold:linear-gradient(180deg,var(--gold-1) 0%,var(--gold-2) 55%,var(--gold-3) 100%);
+  --r:18px; --w:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,iframe{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{width:100%;max-width:var(--w);margin:0 auto;padding:0 16px}
+@media (min-width:640px){.wrap{padding:0 24px}}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+
+.display{font-family:Oswald,Impact,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:.92}
+.gold{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-2)}
+h2{font-weight:800;font-size:clamp(1.7rem,4.2vw,2.6rem);line-height:1.12;letter-spacing:-.02em}
+h2 em{font-style:normal;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+h3{font-weight:700;font-size:1.08rem;line-height:1.3}
+.lead{color:var(--muted);font-size:clamp(1rem,1.6vw,1.1rem);max-width:62ch}
+section{padding:clamp(64px,10vw,104px) 0;position:relative}
+.alt{background:var(--bg-2);border-block:1px solid rgba(255,255,255,.05)}
+.head{text-align:center;display:grid;gap:14px;justify-items:center;margin-bottom:clamp(36px,6vw,52px)}
+.center{text-align:center}
+.mt{margin-top:clamp(32px,5vw,44px)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;border-radius:999px;border:0;
+  background:var(--gold);color:#1a1206;font:800 1rem/1.1 Montserrat,sans-serif;letter-spacing:.02em;text-transform:uppercase;text-decoration:none;cursor:pointer;text-align:center;
+  box-shadow:0 10px 30px -8px rgba(217,191,140,.45),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(217,191,140,.6),inset 0 1px 0 rgba(255,255,255,.6)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-block{width:100%}
+.btn[aria-disabled=true]{background:#2a2620;color:var(--muted);box-shadow:none;cursor:not-allowed;transform:none}
+.note{font-size:.82rem;color:var(--muted);margin-top:12px}
+.tag{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;padding:6px 14px;border-radius:6px}
+
+/* topo */
+.top{position:sticky;top:0;z-index:40;background:rgba(5,5,5,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.brand{font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:1rem;text-decoration:none;white-space:nowrap}
+.top .btn{min-height:40px;padding:0 18px;font-size:.76rem;white-space:nowrap}
+.countdown{display:none;gap:6px;align-items:center;font-size:.78rem;color:var(--muted)}
+.countdown b{font-family:Oswald,sans-serif;font-size:1.05rem;color:var(--ink)}
+@media (min-width:820px){.countdown{display:flex}}
+@media (max-width:420px){.brand{font-size:.85rem}.top .btn{padding:0 14px;font-size:.68rem}}
+
+/* hero */
+.hero{padding:clamp(32px,5vw,56px) 0 clamp(48px,7vw,80px);overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto;height:120%;z-index:-1;
+  background:radial-gradient(60% 50% at 50% 25%,rgba(217,191,140,.16),transparent 70%)}
+.hero .wrap{display:grid;gap:clamp(18px,3vw,26px);justify-items:center;text-align:center}
+.kicker{display:flex;flex-wrap:wrap;gap:8px 12px;justify-content:center;align-items:center;font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2)}
+.hero h1{font-size:clamp(1.9rem,5.4vw,3.5rem);font-weight:800;line-height:1.08;letter-spacing:-.025em;max-width:22ch}
+.hero h1 em{font-style:normal;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(1rem,1.8vw,1.15rem);color:var(--muted);max-width:60ch}
+.hero .sub strong{color:var(--ink)}
+
+/* player estilo YouTube */
+.player{position:relative;width:100%;max-width:1000px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;
+  box-shadow:0 0 0 1px var(--line-2),0 0 70px -12px rgba(217,191,140,.35),0 40px 80px -30px #000}
+.player .bgblur{position:absolute;inset:-40px;background:center/cover no-repeat;filter:blur(30px) brightness(.45);transform:scale(1.1)}
+.player video,.player iframe,.player .ytbox{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player video{object-fit:contain;background:transparent}
+.player{border:3px solid #f2c230}
+/* o iframe do YouTube fica maior que a moldura: a barra de título e o "Mais vídeos" ficam fora da área visível */
+.player .ytbox, .player iframe{top:-70px!important;height:calc(100% + 140px)!important}
+/* antes de ativar o som: vídeo tocando mudo, desfocado atrás do aviso */
+.player .ytbox,.player video{transition:filter .5s ease}
+.player.mudo .ytbox,.player.mudo iframe,.player.mudo video{filter:blur(14px) brightness(.75) saturate(1.1)}
+.clique{position:absolute;inset:0;z-index:2;cursor:pointer}
+.som{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:min(56%,340px);aspect-ratio:16/10;border:3px solid rgba(255,255,255,.85);border-radius:10px;
+  background:#f2c230;color:#fff;display:grid;place-items:center;align-content:center;gap:clamp(4px,1.2vw,10px);cursor:pointer;box-shadow:0 12px 40px rgba(0,0,0,.55);
+  font:800 clamp(.95rem,2.6vw,1.45rem)/1.1 Montserrat,sans-serif;text-shadow:0 1px 2px rgba(0,0,0,.25);animation:pulsa 1.8s ease-in-out infinite}
+.som svg{width:clamp(56px,13vw,96px);height:auto}
+.som:hover{filter:brightness(1.05)}
+@keyframes pulsa{50%{transform:translate(-50%,-50%) scale(1.04)}}
+@media (prefers-reduced-motion:reduce){.som{animation:none}}
+.ctrl{position:absolute;z-index:4;left:0;right:0;bottom:0;padding:28px 14px 10px;background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;align-items:center;gap:12px;opacity:0;transition:opacity .25s}
+.player:hover .ctrl,.player.paused .ctrl,.player:focus-within .ctrl{opacity:1}
+.ctrl[hidden]{display:none}
+.ctrl button{background:none;border:0;cursor:pointer;width:40px;height:40px;display:grid;place-items:center;border-radius:8px;color:#fff;flex:none}
+.ctrl button:hover{background:rgba(255,255,255,.12)}
+.ctrl svg{width:22px;height:22px}
+.bar{flex:1;height:5px;border-radius:5px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--red)}
+.time{font:600 .8rem/1 Montserrat,sans-serif;color:#fff;min-width:84px;text-align:right;font-variant-numeric:tabular-nums}
+.gate{width:100%;max-width:1000px;display:grid;gap:10px}
+.gate p{font-size:.9rem;color:var(--muted)}
+.gate p b{color:var(--ink)}
+.gbar{height:8px;border-radius:8px;background:#1d1a16;overflow:hidden;border:1px solid var(--line)}
+.gbar i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.gate.ok p{color:var(--green)}
+.dates{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.dates span{border:1px solid var(--line-2);border-radius:999px;padding:8px 14px;font-size:.82rem;color:var(--muted);background:#0d0c0a}
+.dates b{color:var(--ink)}
+.dates .hot{border-color:var(--red)}
+
+/* conteúdo travado até 80% do vídeo */
+html.js #resto.travado{display:none}
+.revisao #resto.travado{display:block}
+#resto.abrindo{animation:abre .8s ease both}
+@keyframes abre{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* cards e grids */
+.grid{display:grid;gap:16px}
+@media (min-width:700px){.grid.c2{grid-template-columns:repeat(2,1fr)}.grid.c3{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:960px){.grid.c4{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:600px) and (max-width:959px){.grid.c4{grid-template-columns:repeat(2,1fr)}}
+.card{background:linear-gradient(180deg,#15130f,#0e0d0b);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:8px;align-content:start}
+.card p{color:var(--muted);font-size:.95rem}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(217,191,140,.1);border:1px solid rgba(217,191,140,.25);color:var(--gold-2);margin-bottom:6px}
+.ico svg{width:22px;height:22px}
+.check{list-style:none;display:grid;gap:10px}
+.check li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem}
+.check svg{flex:none;width:20px;height:20px;color:var(--green);margin-top:2px}
+.check.no svg{color:var(--red)}
+.check li span{color:var(--muted)}
+
+  background:radial-gradient(80% 60% at 50% 0%,rgba(217,191,140,.08),transparent 70%),#0a0907;display:grid;gap:16px;justify-items:center}
+
+/* rotas */
+.route{padding:28px}
+.route .eyebrow{color:var(--gold-2)}
+.route h3{font-size:1.3rem}
+.route .check{margin-top:10px}
+
+/* linha do tempo */
+.phases{display:grid;gap:14px}
+@media (min-width:860px){.phases{grid-template-columns:repeat(4,1fr)}}
+.phase{position:relative;border:1px solid var(--line);border-radius:var(--r);padding:22px;background:#0d0c0a;display:grid;gap:6px}
+.phase .d{font:700 .78rem/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2)}
+.phase .n{font-family:Oswald,sans-serif;font-size:1.6rem;text-transform:uppercase;line-height:1}
+.phase p{color:var(--muted);font-size:.93rem}
+.phase.dday{border-color:var(--gold-3);background:radial-gradient(90% 80% at 50% 0%,rgba(217,191,140,.12),transparent 70%),#0d0c0a}
+
+/* aulas */
+.lessons{max-width:860px;margin:0 auto;display:grid;gap:10px}
+.lesson{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;border:1px solid var(--line);border-radius:16px;padding:18px;background:#0d0c0a}
+.lesson .k{font-family:Oswald,sans-serif;font-size:1.5rem;line-height:1;text-align:center;padding-top:4px}
+.lesson p{color:var(--muted);font-size:.93rem;margin-top:4px}
+.lesson.live{border-color:var(--red)}
+.pill{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:5px;background:var(--red);color:#fff;margin-left:8px;vertical-align:2px}
+
+
+/* sobre */
+.about .wrap{display:grid;gap:36px;align-items:center}
+@media (min-width:880px){.about .wrap{grid-template-columns:.9fr 1.1fr}}
+.about .photo{border-radius:24px;overflow:hidden;border:1px solid var(--line-2);aspect-ratio:4/3}
+.about .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.about .txt{display:grid;gap:14px}
+.about .txt p{color:var(--muted)}
+
+
+
+/* oferta */
+.offer{background:radial-gradient(70% 60% at 50% 0%,rgba(217,191,140,.16),transparent 70%),var(--bg)}
+.ticket{max-width:560px;margin:0 auto;border-radius:28px;padding:2px;background:linear-gradient(180deg,var(--gold-2),rgba(168,131,76,.25) 60%,rgba(168,131,76,.1))}
+.ticket-in{border-radius:26px;background:#0b0a08;overflow:hidden}
+.ticket-top{display:flex;justify-content:space-between;padding:14px 22px;font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#1a1206;background:var(--gold)}
+.ticket-body{padding:clamp(24px,5vw,40px);display:grid;gap:18px;text-align:center;border-top:2px dashed #0b0a08}
+.ticket-body h3{font-family:Oswald,sans-serif;text-transform:uppercase;font-size:clamp(1.5rem,4vw,2rem);letter-spacing:.01em;line-height:1.05}
+.price{font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(3.4rem,11vw,4.8rem);line-height:1}
+.pay{color:var(--muted);font-size:.95rem}
+.ticket .check{text-align:left;border-block:1px solid var(--line);padding:20px 0}
+.deadline{font-size:.85rem;color:var(--muted)}
+.deadline b{color:var(--ink)}
+
+.guar{display:flex;gap:14px;align-items:flex-start;text-align:left;border-top:1px solid var(--line);padding-top:18px}
+.guar .seal{width:44px;height:44px;flex:none;color:var(--gold-2)}
+.guar p{font-size:.88rem;color:var(--muted)}
+.guar b{color:var(--ink)}
+
+/* faq */
+.faq-list{max-width:780px;margin:0 auto;display:grid;gap:10px}
+details{border:1px solid var(--line);border-radius:14px;background:#0d0c0a}
+details[open]{border-color:var(--line-2)}
+summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:700;display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:56px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:500 1.6rem/1 Oswald,sans-serif;color:var(--gold-2);transition:transform .2s;flex:none}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 20px 20px;color:var(--muted)}
+
+/* final e rodapé */
+.final{text-align:center;overflow:hidden;isolation:isolate}
+.final::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 50% 100%,rgba(217,191,140,.16),transparent 70%)}
+.final .wrap{display:grid;gap:20px;justify-items:center}
+.final h2{font-family:Oswald,sans-serif;text-transform:uppercase;font-size:clamp(2.2rem,6.5vw,4.2rem);line-height:.98;letter-spacing:0;font-weight:700}
+footer.site{border-top:1px solid rgba(255,255,255,.06);padding:32px 0 calc(90px + env(safe-area-inset-bottom));color:var(--muted);font-size:.78rem;text-align:center}
+footer.site .wrap{display:grid;gap:10px;max-width:820px}
+footer.site nav{display:flex;gap:18px;justify-content:center}
+@media (min-width:900px){footer.site{padding-bottom:32px}}
+
+/* barra fixa no celular */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(5,5,5,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  display:flex;gap:12px;align-items:center;transform:translateY(110%);transition:transform .3s}
+.mbar.on{transform:none}
+.mbar .t{flex:1;font-size:.76rem;line-height:1.3;color:var(--muted)}
+.mbar .t b{display:block;color:var(--ink);font-size:.95rem}
+.mbar .btn{min-height:46px;padding:0 20px;font-size:.78rem}
+@media (min-width:900px){.mbar{display:none}}
+
+/* consentimento (só com GTM configurado) */
+.consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:520px;margin:0 auto;background:#141210;border:1px solid var(--line-2);border-radius:16px;padding:18px;display:none;gap:12px;font-size:.85rem;color:var(--muted)}
+.consent.on{display:grid}
+.consent div{display:flex;gap:10px;justify-content:flex-end}
+.consent button{border-radius:999px;padding:10px 16px;font-weight:700;font-size:.8rem;cursor:pointer;border:1px solid var(--line-2);background:transparent;color:var(--ink);min-height:44px}
+.consent button.ok{background:var(--gold);color:#1a1206;border:0}
+
+/* revelação */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+html:not(.js) .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.rv{opacity:1;transform:none;transition:none}#resto.abrindo{animation:none}}
+
+/* modo revisão (?revisao=1) */
+[data-pendente]{display:none!important}
+.revisao [data-pendente]{display:revert!important;outline:2px dashed var(--red);outline-offset:4px;position:relative}
+.revisao [data-pendente]::before{content:"PENDENTE: " attr(data-pendente);position:absolute;top:-12px;left:12px;z-index:5;background:var(--red);color:#fff;font:700 .62rem/1 Montserrat,sans-serif;letter-spacing:.05em;padding:4px 8px;border-radius:4px;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis}
+.revisao .rascunho{outline:2px dashed #e0a526;outline-offset:4px}
+.revbar{display:none}
+.revisao .revbar{display:block;position:sticky;top:0;z-index:100;background:var(--red);color:#fff;font:700 .76rem Montserrat,sans-serif;text-align:center;padding:6px 12px}
+</style>
+</head>
+<body>
+<div class="revbar" role="note">Modo revisão: página toda aberta · vermelho = falta dado real (escondido do público) · amarelo = confirme o texto</div>
+
+<!-- Configuração de todas as páginas: assets/config.js -->
+<script src="assets/config.js"></script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand gold" href="#inicio">Black Friday Explosiva</a>
+    <div class="countdown" data-depois-video hidden><span>Vendas encerram em</span><b data-cd="d">--</b>d <b data-cd="h">--</b>h <b data-cd="m">--</b>min</div>
+    <a class="btn js-cta" data-pos="topo" href="#oferta" data-depois-video hidden>Quero o método</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <!-- 1. PRIMEIRA DOBRA + VSL -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <div class="kicker"><span class="tag">Online</span><span>Método Black Friday Explosiva · com Daniel Pereira</span></div>
+      <h1 id="h1">Seu negócio vai passar mais uma Black Friday <em>sem fila na porta?</em></h1>
+      <p class="sub rascunho">Veja o método que fez uma loja local faturar em 1 dia o que fatura em 1 mês. <strong>Aplique no seu negócio ou ofereça como serviço para negócios da sua cidade.</strong></p>
+
+      <div class="player mudo" id="player">
+        <div class="bgblur" aria-hidden="true"></div>
+        <div class="ytbox" id="ytbox" hidden></div>
+        <video id="vsl" playsinline muted autoplay preload="auto" hidden></video>
+        <div class="clique" id="clique" aria-hidden="true"></div>
+        <button class="som" id="som" type="button" aria-label="Clique aqui para ativar o som e assistir do início">
+          <span class="t1">Clique aqui</span>
+          <svg viewBox="0 0 64 48" fill="none" aria-hidden="true"><path d="M8 17h10l14-11v36L18 31H8z" fill="#fff"/><path d="M40 14a14 14 0 0 1 0 20M46 8a22 22 0 0 1 0 32" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/><path d="M6 4l52 40" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
+          <span class="t2">para ativar o som</span>
+        </button>
+        <div class="ctrl" id="ctrl" hidden>
+          <button type="button" id="bt-play" aria-label="Pausar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="ic-play" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
+          <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+          <span class="time" id="time">0:00 / 0:00</span>
+          <button type="button" id="bt-som" aria-label="Desativar som"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path id="ic-som" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button>
+          <button type="button" id="bt-tela" aria-label="Tela cheia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+        </div>
+      </div>
+
+      <div class="gate" id="gate" aria-live="polite">
+        <div class="gbar" aria-hidden="true"><i id="gbar"></i></div>
+        <p id="gate-txt"><b>Assista ao vídeo:</b> a apresentação completa do método e a condição de hoje aparecem logo abaixo, depois dele.</p>
+      </div>
+
+      <div class="dates">
+        <span>Aula ao vivo: <b>27/10</b></span>
+        <span class="hot">Vendas até <b>05/11</b></span>
+        <span>Black Friday: <b>27/11</b></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TUDO ABAIXO SÓ ABRE DEPOIS DE 80% DO VÍDEO -->
+  <div id="resto" class="travado">
+
+    <!-- 3. PROVA (só com material real) -->
+    <section class="alt" aria-labelledby="h-prova" data-pendente="foto/vídeo real da fila + números do Dia D">
+      <div class="wrap">
+        <div class="head"><span class="eyebrow">Prova</span><h2 id="h-prova">Essa fila aconteceu <em>de verdade</em>, na porta de um negócio local.</h2>
+          <p class="lead">Não foi sorte e não foi desconto no escuro. Foi um método com data, oferta e roteiro. O Daniel ensina cada passo nas aulas.</p></div>
+        <div class="grid c3">
+          <div class="card center"><div class="price gold" style="font-size:2.4rem">[R$]</div><p>faturamento no Dia D</p></div>
+          <div class="card center"><div class="price gold" style="font-size:2.4rem">[R$]</div><p>faturamento médio de um mês da mesma loja</p></div>
+          <div class="card center"><div class="price gold" style="font-size:2.4rem">[nº]</div><p>pessoas na fila no horário de pico</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section aria-labelledby="h-prob">
+      <div class="wrap">
+        <div class="head rv"><span class="eyebrow">O problema</span><h2 id="h-prob">Por que tanta loja local passa a Black Friday <em>sem fila</em></h2></div>
+        <div class="grid c3">
+          <article class="card rv"><h3>Desconto sem conta</h3><p>Vende bastante, lucra pouco e termina o mês no mesmo lugar.</p></article>
+          <article class="card rv"><h3>Ninguém sabe da campanha</h3><p>O cliente descobre a oferta quando ela já acabou.</p></article>
+          <article class="card rv"><h3>Sem data, sem urgência</h3><p>Sem prazo e sem limite de vagas, a pessoa deixa para depois.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É -->
+    <section class="alt" aria-labelledby="h-quem">
+      <div class="wrap">
+        <div class="head rv"><span class="eyebrow">Para quem é</span><h2 id="h-quem">Dois jeitos de usar <em>o mesmo método</em></h2></div>
+        <div class="grid c2">
+          <article class="card route rv"><span class="eyebrow">Rota 1</span><h3>Tenho um negócio local</h3><p>Aplique no seu negócio e transforme a Black Friday no dia mais forte do ano. Serve para serviços com agenda, alimentação e varejo local.</p></article>
+          <article class="card route rv"><span class="eyebrow">Rota 2</span><h3>Quero oferecer como serviço</h3><p>Leve o método para negócios da sua cidade e cobre pela implementação. Serve para vendedores, social media, gestores de tráfego e autônomos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÉTODO + AULAS -->
+    <section aria-labelledby="h-met">
+      <div class="wrap">
+        <div class="head rv"><span class="eyebrow">O método</span><h2 id="h-met">4 fases, contadas <em>em dias antes da data</em></h2></div>
+        <div class="phases">
+          <div class="phase rv"><span class="d">D-21 · 06/11</span><span class="n gold">Preparação</span><p>Oferta, margem e lista de clientes.</p></div>
+          <div class="phase rv"><span class="d">D-14 · 13/11</span><span class="n gold">Aquecimento</span><p>Conteúdo, WhatsApp e anúncio local criam expectativa.</p></div>
+          <div class="phase dday rv"><span class="d">Dia D · 27/11</span><span class="n gold">Dia D</span><p>Roteiro hora a hora para transformar expectativa em fila.</p></div>
+          <div class="phase rv"><span class="d">D+7 · 04/12</span><span class="n gold">Pós</span><p>Recompra, indicação e a próxima data.</p></div>
+        </div>
+        <div class="head mt rv" style="margin-bottom:24px"><h2 id="h-aulas" style="font-size:clamp(1.4rem,3vw,1.9rem)">Nas aulas</h2></div>
+        <div class="lessons">
+          <div class="lesson rv"><span class="k gold">01</span><div><h3>O método e o caso da fila</h3></div></div>
+          <div class="lesson rv"><span class="k gold">02</span><div><h3>Montando a oferta sem vender no prejuízo</h3></div></div>
+          <div class="lesson rv"><span class="k gold">03</span><div><h3>Aquecimento e Dia D: roteiros de WhatsApp, Stories e anúncio local</h3></div></div>
+          <div class="lesson rv"><span class="k gold">04</span><div><h3>Vendendo o serviço: abordagem, proposta e preço</h3></div></div>
+          <div class="lesson rv"><span class="k gold">05</span><div><h3>Entregando e provando resultado</h3></div></div>
+          <div class="lesson live rv"><span class="k gold">06</span><div><h3>Aula final <span class="pill">Ao vivo</span></h3><p>27/10<span data-f-pre=", às " data-f="horarioAoVivo"></span>, com gravação para quem entrar depois.</p></div></div>
+        </div>
+        <div class="center mt rv"><a class="btn js-cta js-buy" data-pos="aulas" href="#oferta">Quero o método por R$67</a></div>
+      </div>
+    </section>
+
+    <!-- QUEM ENSINA -->
+    <section class="about alt" aria-labelledby="h-sobre">
+      <div class="wrap">
+        <div class="photo rv"><img src="assets/img/palestrante.jpg" alt="Daniel Pereira com microfone, falando para o público" width="1000" height="700" loading="lazy"></div>
+        <div class="txt rv">
+          <span class="eyebrow">Quem ensina</span>
+          <h2 id="h-sobre">Daniel <em>Pereira</em></h2>
+          <p>Criador do Método Black Friday Explosiva.</p>
+          <p data-pendente="bio do Daniel" data-f="bio" style="white-space:pre-line">[Bio: quem é, há quanto tempo atua, com que tipo de negócio trabalha, credenciais verificáveis e a história do caso da fila.]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS (só reais e autorizados) -->
+    <section aria-labelledby="h-dep" data-pendente="3 depoimentos reais (vídeo/print + nome, negócio, cidade)">
+      <div class="wrap">
+        <div class="head"><span class="eyebrow">Depoimentos</span><h2 id="h-dep">Quem já viu <em>o método funcionar</em></h2></div>
+        <div class="grid c3"><div class="card">[Depoimento 1]</div><div class="card">[Depoimento 2]</div><div class="card">[Depoimento 3]</div></div>
+      </div>
+    </section>
+
+    <!-- OFERTA (única) -->
+    <section class="offer" id="oferta" aria-labelledby="h-of">
+      <div class="wrap">
+        <div class="head rv"><span class="eyebrow">Sua senha</span><h2>Entre agora e tenha <em>tempo de aplicar</em></h2></div>
+        <div class="ticket rv">
+          <div class="ticket-in">
+            <div class="ticket-top"><span>Senha Nº 001</span><span>Acesso imediato</span></div>
+            <div class="ticket-body">
+              <h3 id="h-of" class="gold">Método Black Friday Explosiva</h3>
+              <div><div class="price gold">R$67</div><p class="pay">à vista no Pix, ou parcelado no cartão <span data-f="parcelamento"></span></p></div>
+              <ul class="check">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Aulas gravadas com Daniel Pereira, liberadas na hora</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Aula final ao vivo em 27/10, com gravação</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Método completo do D-21 ao D+7, inclusive como vender o serviço</li>
+              </ul>
+              <a class="btn btn-block js-cta js-buy" data-pos="oferta" href="#oferta">Quero entrar agora</a>
+              <p class="deadline" id="deadline">Vendas até <b>05/11, às 23h59</b>, véspera do D-21.</p>
+              <div class="guar"><svg class="seal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1.2 3 1.2 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1-2.8-1.6 1.2-3-1.2-3 2.8-1.6.9-3.1 3.2.3L12 2Z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><p><b>Garantia de 7 dias.</b> Se achar que o método não é para você, peça o reembolso em até 7 dias e devolvemos o valor. Sem perguntas.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="alt" aria-labelledby="h-faq">
+      <div class="wrap">
+        <div class="head rv"><span class="eyebrow">Perguntas frequentes</span><h2 id="h-faq">Antes de <em>comprar</em></h2></div>
+        <div class="faq-list rv">
+          <details><summary>Eu preciso saber vender?</summary><p>Não. Há um módulo só sobre vender o serviço, com abordagem, proposta e preço.</p></details>
+          <details><summary>E se eu não puder assistir à aula ao vivo?</summary><p>A gravação fica na área de aulas<span data-f-pre=". A aula é pelo " data-f="plataformaAoVivo"></span>, e o link chega no seu e-mail e no WhatsApp.</p></details>
+          <details><summary>Serve para outras datas além da Black Friday?</summary><p>Sim. Natal, Dia das Mães, Dia do Cliente e aniversário da empresa seguem a mesma lógica.</p></details>
+          <details data-pendente="tempo de acesso às aulas"><summary>Por quanto tempo tenho acesso?</summary><p data-f="tempoAcesso"></p></details>
+          <details><summary>O resultado é garantido?</summary><p>Não. Cada negócio é diferente e o resultado depende da oferta, da cidade e da execução.</p></details>
+        </div>
+        <div class="center mt rv"><a class="btn js-cta js-buy" data-pos="final" href="#oferta">Quero o método por R$67</a></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Os resultados exibidos são de um caso real e não representam garantia de ganho. Os resultados variam conforme o negócio, a cidade, a oferta e a execução de cada pessoa.</p>
+    <p>Este site não é afiliado ao Facebook, ao Instagram ou à Meta.</p>
+    <p data-pendente="razão social, CNPJ e contato" data-f="rodapeEmpresa">[Razão social · CNPJ · contato]</p>
+    <nav><a href="termos.html">Termos de uso</a><a href="privacidade.html">Política de privacidade</a></nav>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar" aria-hidden="true">
+  <div class="t"><b>R$67</b>Vendas até 05/11</div>
+  <a class="btn js-cta js-buy" data-pos="barra-mobile" href="#oferta" tabindex="-1">Quero o método</a>
+</div>
+
+<div class="consent" id="consent" role="dialog" aria-label="Preferências de cookies">
+  <p>Usamos cookies de medição para entender como a página é usada e melhorar a experiência. Você pode recusar sem prejuízo.</p>
+  <div><button type="button" data-consent="nao">Recusar</button><button type="button" class="ok" data-consent="sim">Aceitar</button></div>
+</div>
+
+<script>
+(function () {
+  var O = window.OFERTA || {};
+  var qs = new URLSearchParams(location.search);
+  var root = document.documentElement;
+  var revisao = qs.get('revisao') === '1';
+  if (revisao) root.classList.add('revisao');
+  var has = function (k) { return !!(O[k] && String(O[k]).trim()); };
+
+  // ---------- dados da configuração
+  document.querySelectorAll('[data-f]').forEach(function (el) {
+    var v = O[el.getAttribute('data-f')];
+    if (v) el.textContent = (el.getAttribute('data-f-pre') || '') + v;
+  });
+  var liberar = {
+    'bio do Daniel': has('bio'), 'tempo de acesso às aulas': has('tempoAcesso'),
+    'razão social, CNPJ e contato': has('rodapeEmpresa')
+  };
+  document.querySelectorAll('[data-pendente]').forEach(function (el) {
+    if (liberar[el.getAttribute('data-pendente')]) el.removeAttribute('data-pendente');
+  });
+
+  // ---------- UTMs e eventos (sem dados pessoais)
+  var UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src', 'sck'];
+  var origem = {};
+  try { origem = JSON.parse(sessionStorage.getItem('bfx_utm') || '{}'); } catch (e) {}
+  UTM.forEach(function (k) { if (qs.get(k) && !origem[k]) origem[k] = qs.get(k); });
+  try { sessionStorage.setItem('bfx_utm', JSON.stringify(origem)); } catch (e) {}
+  window.dataLayer = window.dataLayer || [];
+  function track(evento, extra) { window.dataLayer.push(Object.assign({ event: evento, pagina: 'black-explosiva-online' }, origem, extra || {})); }
+  track('page_view');
+
+  // ---------- prazo real de vendas
+  var fim = new Date(O.vendasAte).getTime();
+  var encerrado = Date.now() > fim;
+
+  // Botões de compra levam ao checkout da página (checkout.html); o início real do pagamento é medido lá.
+  document.querySelectorAll('.js-cta').forEach(function (a) {
+    if (encerrado && a.classList.contains('js-buy')) {
+      a.textContent = 'Vendas encerradas'; a.setAttribute('aria-disabled', 'true'); a.removeAttribute('href'); return;
+    }
+    if (a.classList.contains('js-buy')) {
+      var tk = (O.ticto || {}).checkoutUrl;
+      if (tk) {
+        // checkout da Ticto (dados, Pix, cartão, boleto e order bump ficam lá), levando as UTMs
+        var u = new URL(tk, location.href);
+        Object.keys(origem).forEach(function (k) { if (!u.searchParams.has(k)) u.searchParams.set(k, origem[k]); });
+        a.href = u.toString();
+      } else {
+        a.href = 'checkout.html'; // simulação do funil enquanto o link da Ticto não está configurado
+      }
+    }
+    a.addEventListener('click', function () {
+      track('cta_click', { posicao: a.getAttribute('data-pos') });
+    });
+  });
+  if (encerrado) document.getElementById('deadline').innerHTML = '<b>As vendas desta turma foram encerradas.</b>';
+
+  var cd = document.querySelector('.countdown');
+  function tick() {
+    var s = Math.max(0, Math.floor((fim - Date.now()) / 1000));
+    if (!s) { cd.style.visibility = 'hidden'; return; }
+    cd.querySelector('[data-cd=d]').textContent = Math.floor(s / 86400);
+    cd.querySelector('[data-cd=h]').textContent = String(Math.floor(s % 86400 / 3600)).padStart(2, '0');
+    cd.querySelector('[data-cd=m]').textContent = String(Math.floor(s % 3600 / 60)).padStart(2, '0');
+  }
+  tick(); setInterval(tick, 30000);
+
+  // ---------- trava: o resto da página abre com X% do vídeo assistido
+  var LIMITE = O.liberarEm || 0.8;
+  var resto = document.getElementById('resto');
+  var gate = document.getElementById('gate'), gbar = document.getElementById('gbar'), gtxt = document.getElementById('gate-txt');
+  var liberado = false;
+
+  function abrir(origemDoDesbloqueio) {
+    if (liberado) return; liberado = true;
+    resto.classList.remove('travado'); resto.classList.add('abrindo');
+    document.querySelectorAll('[data-depois-video]').forEach(function (el) { el.hidden = false; });
+    gate.classList.add('ok'); gbar.style.width = '100%';
+    gtxt.innerHTML = '<b>Pronto!</b> A condição de hoje está liberada logo abaixo. <a href="#oferta" style="color:var(--gold-2);font-weight:700">Ver a oferta ↓</a>';
+    try { localStorage.setItem('bfx_liberado', '1'); } catch (e) {}
+    observarRevelacao();
+    if (origemDoDesbloqueio === 'video') track('video_unlock', { percentual: Math.round(LIMITE * 100) });
+  }
+
+  // Conta segundos realmente assistidos (pular para frente não conta).
+  var vistos = {}, nVistos = 0, marcos = {};
+  function registrar(t, dur) {
+    if (!dur || !isFinite(dur)) return;
+    var k = Math.floor(t * 2);
+    if (!vistos[k]) { vistos[k] = 1; nVistos++; }
+    var p = Math.min(1, nVistos / Math.ceil(dur * 2));
+    [0.25, 0.5, 0.75].forEach(function (m) { if (p >= m && !marcos[m]) { marcos[m] = 1; track('video_progress', { percentual: m * 100 }); } });
+    if (!liberado) {
+      gbar.style.width = Math.round(Math.min(1, p / LIMITE) * 100) + '%';
+      if (p >= LIMITE) abrir('video');
+    }
+  }
+
+  var jaLiberado = false;
+  try { jaLiberado = localStorage.getItem('bfx_liberado') === '1'; } catch (e) {}
+  if (revisao || jaLiberado) abrir('memoria');
+
+  // ---------- player estilo VSL
+  // Começa sozinho e mudo. "Clique aqui para ativar o som" recomeça do início com som.
+  // Só conta tempo assistido COM som; tentativa de adiantar volta ao ponto já assistido.
+  var player = document.getElementById('player'), som = document.getElementById('som'), clique = document.getElementById('clique');
+  var ctrl = document.getElementById('ctrl'), bar = document.getElementById('bar'), time = document.getElementById('time');
+  var btPlay = document.getElementById('bt-play'), btSom = document.getElementById('bt-som'), btTela = document.getElementById('bt-tela');
+  var icPlay = document.getElementById('ic-play'), icSom = document.getElementById('ic-som');
+  var ytId = O.video && O.video.youtubeId;
+  var capa = ytId ? 'https://i.ytimg.com/vi/' + encodeURIComponent(ytId) + '/hqdefault.jpg' : (O.video && O.video.poster || '');
+  player.querySelector('.bgblur').style.backgroundImage = 'url(' + capa + ')';
+  var fmt = function (s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  var api = null;            // { play, pause, paused, cur, dur, muted, mute, unmute, seek }
+  var comSom = false;        // a pessoa já ativou o som (a contagem começa aqui)
+  var maxVisto = 0, ultimo = 0;
+
+  function pintar() {
+    if (!api) return;
+    var c = api.cur(), d = api.dur();
+    bar.style.width = d ? (Math.min(c, d) / d * 100) + '%' : '0';
+    time.textContent = fmt(c) + ' / ' + fmt(d);
+    var pausado = api.paused();
+    player.classList.toggle('paused', pausado);
+    icPlay.setAttribute('d', pausado ? 'M8 5v14l11-7z' : 'M6 5h4v14H6zM14 5h4v14h-4z');
+    btPlay.setAttribute('aria-label', pausado ? 'Reproduzir' : 'Pausar');
+    icSom.style.display = api.muted() ? 'none' : '';
+    btSom.setAttribute('aria-label', api.muted() ? 'Ativar som' : 'Desativar som');
+  }
+
+  // chamado a cada atualização de tempo
+  function vigiar() {
+    if (!api) return;
+    var c = api.cur(), d = api.dur();
+    if (comSom && !api.paused()) {
+      if (c > maxVisto + 1.5) { api.seek(maxVisto); return; }      // tentou adiantar: volta
+      if (c - ultimo >= 0 && c - ultimo < 1.5) maxVisto = Math.max(maxVisto, c);
+      registrar(c, d);
+    }
+    ultimo = c;
+    pintar();
+  }
+
+  function ativarSom() {
+    if (!api) return;
+    comSom = true; maxVisto = 0; ultimo = 0;
+    som.hidden = true; ctrl.hidden = false; player.classList.remove('mudo');
+    api.unmute(); api.seek(0); api.play();
+    track('video_start');
+    setTimeout(pintar, 120);
+  }
+
+  function usarMP4() {
+    var v = document.getElementById('vsl');
+    v.src = O.video.mp4; v.hidden = false; v.muted = true;
+    api = {
+      play: function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); }, pause: function () { v.pause(); }, paused: function () { return v.paused; },
+      cur: function () { return v.currentTime; }, dur: function () { return v.duration || 0; },
+      muted: function () { return v.muted; }, mute: function () { v.muted = !v.muted; }, unmute: function () { v.muted = false; },
+      seek: function (t) { v.currentTime = t; }
+    };
+    v.addEventListener('timeupdate', vigiar);
+    v.addEventListener('seeking', function () { if (comSom && v.currentTime > maxVisto + 1.5) v.currentTime = maxVisto; });
+    ['play', 'pause', 'loadedmetadata', 'volumechange'].forEach(function (e) { v.addEventListener(e, pintar); });
+    v.addEventListener('ended', function () { if (comSom) { registrar(v.duration - 0.1, v.duration); track('video_complete'); } pintar(); });
+    api.play();
+  }
+
+  function usarYouTube() {
+    var box = document.getElementById('ytbox'); box.hidden = false;
+    function criar() {
+      var yt = new YT.Player(box, {
+        videoId: ytId,
+        playerVars: { autoplay: 1, mute: 1, controls: 0, disablekb: 1, modestbranding: 1, rel: 0, playsinline: 1, iv_load_policy: 3, fs: 0 },
+        events: {
+          onReady: function () {
+            api = {
+              play: function () { yt.playVideo(); }, pause: function () { yt.pauseVideo(); },
+              paused: function () { return yt.getPlayerState() !== 1; },
+              cur: function () { return yt.getCurrentTime() || 0; }, dur: function () { return yt.getDuration() || 0; },
+              muted: function () { return yt.isMuted(); }, mute: function () { yt.isMuted() ? yt.unMute() : yt.mute(); setTimeout(pintar, 60); },
+              unmute: function () { yt.unMute(); yt.setVolume(100); }, seek: function (t) { yt.seekTo(t, true); }
+            };
+            yt.mute(); yt.playVideo();
+            setInterval(vigiar, 400);
+          },
+          onStateChange: function (e) {
+            if (e.data === 0 && comSom) { registrar(yt.getDuration() - 0.1, yt.getDuration()); track('video_complete'); }
+            pintar();
+          }
+        }
+      });
+    }
+    if (window.YT && YT.Player) criar();
+    else {
+      window.onYouTubeIframeAPIReady = criar;
+      var s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
+    }
+  }
+
+  if (ytId) usarYouTube(); else usarMP4();
+  som.addEventListener('click', ativarSom);
+  clique.addEventListener('click', function () {
+    if (!api) return;
+    if (!comSom) return ativarSom();
+    api.paused() ? api.play() : api.pause(); setTimeout(pintar, 60);
+  });
+  btPlay.addEventListener('click', function () { if (!api) return; api.paused() ? api.play() : api.pause(); setTimeout(pintar, 60); });
+  btSom.addEventListener('click', function () { if (api) { api.mute(); pintar(); } });
+  btTela.addEventListener('click', function () {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (player.requestFullscreen) player.requestFullscreen();
+    else { var v = document.getElementById('vsl'); if (v.webkitEnterFullscreen) v.webkitEnterFullscreen(); }
+  });
+
+  // ---------- revelação e barra móvel (só depois de liberado)
+  var io;
+  function observarRevelacao() {
+    if (!('IntersectionObserver' in window)) { document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); }); return; }
+    io = io || new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.rv:not(.in)').forEach(function (el) { io.observe(el); });
+    var mbar = document.getElementById('mbar'), hero = document.querySelector('.hero'), oferta = document.getElementById('oferta');
+    var heroFora = false, ofertaVis = false;
+    var sync = function () { mbar.classList.toggle('on', heroFora && !ofertaVis && !encerrado); };
+    new IntersectionObserver(function (e) { heroFora = !e[0].isIntersecting; sync(); }).observe(hero);
+    new IntersectionObserver(function (e) { ofertaVis = e[0].isIntersecting; sync(); }).observe(oferta);
+  }
+
+  // ---------- GTM só depois do consentimento (LGPD)
+  if (has('gtmId')) {
+    var escolha = null;
+    try { escolha = localStorage.getItem('bfx_consent'); } catch (e) {}
+    var carregarGTM = function () {
+      window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(O.gtmId);
+      document.head.appendChild(s);
+    };
+    if (escolha === 'sim') carregarGTM();
+    else if (escolha !== 'nao') {
+      var c = document.getElementById('consent'); c.classList.add('on');
+      c.addEventListener('click', function (ev) {
+        var r = ev.target.getAttribute && ev.target.getAttribute('data-consent'); if (!r) return;
+        try { localStorage.setItem('bfx_consent', r); } catch (e) {}
+        c.classList.remove('on'); if (r === 'sim') carregarGTM();
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>

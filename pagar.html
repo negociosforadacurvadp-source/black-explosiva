@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confirmar compra · Black Friday Explosiva</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#050505">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/funil.css">
+<style>
+body{background-image:none}
+.ck{max-width:560px;margin:0 auto;padding:20px 12px 40px}
+.papel{padding:22px 18px;display:grid;gap:18px;color:#1d1d1f}
+.papel h1{font-size:1.4rem;color:#111}
+.papel h2{font-size:1rem;font-weight:800;color:#1d1d1f}
+.resumo{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border:1px solid #ececf0;border-radius:8px;padding:14px}
+.resumo b{font-size:.98rem}
+.resumo .v{font-family:Oswald,sans-serif;font-size:1.6rem;color:#1e9f33;white-space:nowrap}
+.metodos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metodo{position:relative;border:2px solid #e2e2e8;border-radius:10px;padding:14px 12px;display:flex;gap:10px;align-items:center;cursor:pointer;background:#fff;text-align:left;color:#1d1d1f}
+.metodo svg{width:28px;height:28px;flex:none}
+.metodo b{display:block;font-size:.9rem}
+.metodo span{font-size:.74rem;color:#6b6b72}
+.metodo[aria-pressed=true]{border-color:#1e9f33;background:#f3fbf4}
+.area-cartao{border:1px solid #ececf0;border-radius:10px;padding:12px;min-height:80px}
+.teste-cartao{font-size:.86rem;color:#8a5a00;background:#fff7e6;border:1px dashed #e0a526;border-radius:8px;padding:14px}
+.info-pix{font-size:.88rem;color:#3a3a40;background:#f3fbf4;border-radius:8px;padding:14px}
+.alerta{border-radius:8px;padding:12px 14px;font-size:.9rem;font-weight:600}
+.alerta.erro{background:#fff1f1;color:#b3141b;border:1px solid #f3c2c4}
+.alerta.teste{background:#fff7e6;color:#8a5a00;border:1px dashed #e0a526}
+.nota{font-size:.78rem;color:#6b6b72;text-align:center}
+.btn-verde[disabled]{opacity:.7;cursor:wait}
+.pix{display:grid;gap:14px;text-align:center;justify-items:center}
+.pix img{width:220px;height:220px;image-rendering:pixelated;border:1px solid #ececf0;border-radius:8px}
+.pix textarea{width:100%;min-height:84px;font:500 .78rem/1.4 ui-monospace,monospace;border:1px solid #d6d6dc;border-radius:8px;padding:10px;resize:none;color:#1d1d1f}
+.aguardando{display:flex;gap:8px;align-items:center;font-size:.88rem;color:#3a3a40}
+.aguardando i{width:10px;height:10px;border-radius:50%;background:#1e9f33;animation:pulso 1.2s infinite}
+@keyframes pulso{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.aguardando i{animation:none}}
+</style>
+</head>
+<body class="funil" data-pagina="pagar" data-requer="pagamento.mpPublicKey pagamento.apiUrl">
+<div class="revbar" role="note">Modo configuração</div>
+<div class="ok-bar">✓ <b>Sua primeira compra está confirmada.</b> Falta só esta etapa.</div>
+<div class="ck">
+  <div class="faixa-vermelha">Último passo !</div>
+  <div class="papel" id="papel">
+    <span class="eyebrow" style="color:#1e9f33">Compra 100% segura · Mercado Pago</span>
+    <h1>Confirme sua compra</h1>
+    <div class="resumo"><b id="nome-item">Oferta</b><span class="v" id="preco-item">R$—</span></div>
+    <p class="nota" style="text-align:left">Usamos os dados da sua compra anterior. O acesso chega no mesmo e-mail.</p>
+
+    <section aria-labelledby="h-pag" style="gap:12px">
+      <h2 id="h-pag">Forma de pagamento</h2>
+      <div class="metodos" role="group" aria-label="Forma de pagamento">
+        <button type="button" class="metodo" data-metodo="cartao" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1e9f33" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><span><b>Cartão</b><span>em até <span data-f="pagamento.maxParcelas">12</span>x</span></span></button>
+        <button type="button" class="metodo" data-metodo="pix" aria-pressed="false"><svg viewBox="0 0 24 24" fill="#32bcad" aria-hidden="true"><path d="M12 2.5 21.5 12 12 21.5 2.5 12 12 2.5Zm0 4.2L6.7 12l5.3 5.3 5.3-5.3L12 6.7Z"/></svg><span><b>Pix</b><span>aprovação na hora</span></span></button>
+      </div>
+      <div id="area-cartao" class="area-cartao"><div id="cartao"></div>
+        <div class="teste-cartao" id="cartao-teste" hidden><b>Modo de teste:</b> os campos do cartão do Mercado Pago aparecem aqui quando a chave for configurada.</div></div>
+      <div id="area-pix" class="info-pix" hidden>O QR Code do Pix aparece depois que você confirmar.</div>
+    </section>
+
+    <div class="alerta erro" id="erro" role="alert" hidden></div>
+    <div class="alerta teste" data-pendente="chave do Mercado Pago (pagamento.mpPublicKey, pagamento.apiUrl)">Modo de teste: o botão simula a compra. Nenhum pagamento é feito.</div>
+    <button class="btn-verde" id="comprar" type="button">Confirmar compra</button>
+    <a class="link-cinza" id="voltar" href="#">Não quero, voltar</a>
+  </div>
+
+  <div class="papel pix" id="tela-pix" hidden>
+    <h2 style="font-size:1.3rem">Pague com Pix para liberar</h2>
+    <img id="pix-qr" alt="QR Code do Pix" width="220" height="220">
+    <label for="pix-codigo" class="small" style="font-weight:700">Pix copia e cola</label>
+    <textarea id="pix-codigo" readonly></textarea>
+    <button class="btn-verde" type="button" id="copiar">Copiar código Pix</button>
+    <div class="aguardando" aria-live="polite"><i></i><span id="pix-status">Aguardando a confirmação do pagamento...</span></div>
+  </div>
+</div>
+
+<footer class="rodape">Copyright © <span data-f="rodapeEmpresa">Black Friday Explosiva</span> · 2026 · <a href="termos.html">Termos de uso</a> · <a href="privacidade.html">Política de privacidade</a></footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/funil.js"></script>
+<script src="assets/pagamento.js"></script>
+<script>
+(function () {
+  var B = window.BFX, O = B.O, PG = window.PAGAMENTO;
+  var $ = function (id) { return document.getElementById(id); };
+  var reais = function (txt) { return parseFloat(String(txt || '').replace(/[^\d,]/g, '').replace(',', '.')) || 0; };
+  var OFERTAS = {
+    acompanhamento: { cfg: O.upsell || {}, nome: 'Acompanhamento com o Daniel', volta: 'upsell.html' },
+    essencial: { cfg: O.downsell || {}, nome: 'Acompanhamento Essencial', volta: 'downsell.html' },
+    comunidade: { cfg: O.comunidade || {}, nome: 'Comunidade Black Friday Explosiva', volta: 'comunidade.html' }
+  };
+  var item = new URLSearchParams(location.search).get('item');
+  var of = OFERTAS[item];
+  var sufixo = B.teste ? '?teste=1' : '';
+  if (!of) { location.replace('index.html'); return; }
+  $('nome-item').textContent = of.nome;
+  $('preco-item').textContent = of.cfg.preco || 'R$—';
+  $('voltar').href = of.volta + sufixo;
+
+  var pai = PG.pedidoLembrado();
+  if (PG.ativo && !pai) {
+    $('erro').textContent = 'Esta condição é exclusiva para quem acabou de comprar o Método. Se você comprou, use o mesmo navegador da compra.';
+    $('erro').hidden = false; $('comprar').disabled = true; return;
+  }
+
+  var metodo = 'cartao', cartao = null;
+  document.querySelectorAll('.metodo').forEach(function (b) {
+    b.addEventListener('click', function () {
+      metodo = b.getAttribute('data-metodo');
+      document.querySelectorAll('.metodo').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      $('area-cartao').hidden = metodo !== 'cartao'; $('area-pix').hidden = metodo !== 'pix';
+    });
+  });
+  if (PG.ativo) PG.montarCartao('cartao', reais(of.cfg.preco)).then(function (c) { cartao = c; }).catch(function (e) { $('erro').textContent = e.message; $('erro').hidden = false; });
+  else $('cartao-teste').hidden = false;
+
+  function concluir() { B.track(item + '_purchase', { valor: reais(of.cfg.preco), metodo: metodo }); location.href = 'obrigado.html' + sufixo; }
+
+  $('comprar').addEventListener('click', async function () {
+    $('erro').hidden = true;
+    if (!PG.ativo) { B.track(item + '_teste'); location.href = 'obrigado.html?teste=1'; return; }
+    var btn = $('comprar'); btn.disabled = true; btn.textContent = 'Processando...';
+    try {
+      var corpo = { itens: [item], metodo: metodo, pai_token: pai };
+      if (metodo === 'cartao') {
+        if (!cartao) throw new Error('Os campos do cartão ainda estão carregando.');
+        corpo.cartao = await cartao.obterDados();
+      }
+      var r = await PG.criarPagamento(corpo);
+      if (r.status === 'pago') return concluir();
+      if (r.status === 'recusado') throw new Error('Pagamento recusado. Confira os dados ou use o Pix.');
+      $('papel').hidden = true; $('tela-pix').hidden = false;
+      if (r.pix) { $('pix-qr').src = 'data:image/png;base64,' + r.pix.qr_base64; $('pix-codigo').value = r.pix.copia_e_cola || ''; }
+      else { ['pix-qr', 'pix-codigo', 'copiar'].forEach(function (id) { $(id).hidden = true; }); }
+      PG.acompanhar(r.pedido, concluir, function () { $('pix-status').textContent = 'O pagamento não foi concluído.'; });
+    } catch (e) {
+      $('erro').textContent = e.message; $('erro').hidden = false;
+      btn.disabled = false; btn.textContent = 'Confirmar compra';
+    }
+  });
+  $('copiar').addEventListener('click', function () {
+    var t = $('pix-codigo'); t.select();
+    (navigator.clipboard ? navigator.clipboard.writeText(t.value) : Promise.reject()).catch(function () { document.execCommand('copy'); });
+    $('copiar').textContent = 'Código copiado!';
+  });
+})();
+</script>
+</body>
+</html>

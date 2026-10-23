@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comunidade · Black Friday Explosiva</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/funil.css">
+</head>
+<body class="funil" data-pagina="comunidade" data-requer="ticto.comunidadeUrl">
+<div class="revbar" role="note">Modo configuração</div>
+<div class="ok-bar">✓ <b>Tudo certo.</b> Seu acesso às aulas continua garantido.</div>
+
+<div class="ck larga">
+  <div class="faixa-vermelha">Vai aplicar sozinho?</div>
+  <div class="grade">
+  <div class="papel">
+    <div class="bloco center">
+      <h1>Então tenha um grupo para <em>não travar no meio do caminho</em></h1>
+      <p>A Comunidade é para quem vai seguir as aulas por conta própria, mas não quer ficar parado numa dúvida a poucos dias da Black Friday.</p>
+    </div>
+
+    <div class="bloco">
+      <h2>Na Comunidade você tem</h2>
+      <div class="card"><h3>Dúvidas respondidas</h3><p>Pela equipe do Daniel<span data-f="comunidade.duvidas" data-f-pre=", "></span>.</p></div>
+      <div class="card"><h3>Troca entre alunos</h3><p>Ofertas, roteiros e resultados de quem está aplicando junto com você.</p></div>
+      <div class="card"><h3>Próximas datas</h3><p>Avisos para adaptar o método ao Natal e às outras datas do calendário.</p></div>
+      <p class="small muted" data-pendente="onde fica a Comunidade" data-se="comunidade.ondeFica">Onde fica: <span data-f="comunidade.ondeFica"></span>.</p>
+    </div>
+
+  </div>
+  <aside class="lateral">
+    <div class="papel lateral-card">
+      <div class="oferta-box">
+        <div class="cab">Comunidade Black Friday Explosiva</div>
+        <div class="corpo">
+          <div data-pendente="preço e condição da Comunidade" data-se="comunidade.preco comunidade.condicao">
+            <div class="preco-verde" data-f="comunidade.preco">[R$ __]</div>
+            <p class="parc" data-f="comunidade.condicao">[condição]</p>
+          </div>
+          <a class="btn-verde" id="aceitar" href="#">Sim, quero entrar na Comunidade</a>
+          <p class="nota-teste" data-pendente="link de 1 clique da Ticto (ticto.comunidadeUrl)">Modo de teste: o botão simula a compra. Nenhum pagamento é feito.</p>
+          <a class="link-cinza" id="recusar" href="#">Não, obrigado. Ir para o meu acesso.</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+  </div>
+</div>
+
+<footer class="rodape">Copyright © <span data-f="rodapeEmpresa">Black Friday Explosiva</span> · 2026 · <a href="termos.html">Termos de uso</a> · <a href="privacidade.html">Política de privacidade</a></footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/funil.js"></script>
+<script>
+(function () {
+  var B = window.BFX, D = B.O.comunidade || {};
+  var tictoUrl = (B.O.ticto || {}).comunidadeUrl;
+  var externo = function (u) { return /^https?:\/\//.test(u || ''); };
+  B.ligar(document.getElementById('aceitar'), tictoUrl, 'pagar.html?item=comunidade', 'comunidade_accept', tictoUrl ? null : 'Sim, quero entrar na Comunidade (teste)');
+  B.ligar(document.getElementById('recusar'), externo(D.recusarUrl) ? D.recusarUrl : null, D.recusarUrl || 'obrigado.html', 'comunidade_decline');
+})();
+</script>
+</body>
+</html>

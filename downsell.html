@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espera um pouco... · Black Friday Explosiva</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/funil.css">
+<style>
+.foto{width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto;box-shadow:0 0 0 4px #fff,0 0 0 6px #d81f26}
+.obj{list-style:none;display:grid;gap:6px}
+.obj li{display:flex;gap:8px;align-items:flex-start;font-size:.95rem;color:#3a3a40}
+.obj svg{flex:none;width:18px;height:18px;color:#d81f26;margin-top:2px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs > div{border-radius:10px;padding:14px;display:grid;gap:6px;font-size:.86rem}
+.vs .a{background:#f3f3f5;color:#55555c}
+.vs .b{background:#f3fbf4;border:2px solid #1e9f33;color:#2a2a30}
+.vs h3{font-size:.95rem}
+</style>
+</head>
+<body class="funil" data-pagina="downsell" data-requer="ticto.downsellUrl">
+<div class="revbar" role="note">Modo configuração</div>
+<div class="ok-bar">✓ <b>Compra confirmada.</b> Seu acesso está sendo enviado para o seu e-mail.</div>
+
+<div class="ck larga">
+  <div class="faixa-vermelha">Espera um pouco...</div>
+  <div class="grade">
+  <div class="papel">
+    <div class="bloco center">
+      <img class="foto" src="assets/img/daniel-rosto.jpg" alt="Daniel Pereira" width="320" height="320">
+      <h1>Antes de sair, eu liberei uma <em>condição pra você</em></h1>
+      <p>O acompanhamento comigo, numa versão menor e <b id="pct">mais barata</b>.</p>
+    </div>
+
+    <div class="bloco">
+      <p><b>Eu imagino por que você disse "não" na página anterior. É normal pensar:</b></p>
+      <ul class="obj">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>"Agora não cabe no meu bolso..."</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>"Não sei se vou ter tempo para todos os encontros..."</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>"Acho que consigo aplicar sozinho..."</li>
+      </ul>
+      <p>Por isso eu separei uma versão enxuta, com os encontros que mais fazem diferença no resultado.</p>
+    </div>
+
+    <div class="destaque-claro">
+      <h2>O que é o Acompanhamento Essencial?</h2>
+      <p>São <b data-f="downsell.encontros">[nº]</b> encontros ao vivo comigo, nos momentos em que a campanha mais costuma dar errado: <b data-f="downsell.quais">[quais encontros]</b>.</p>
+      <ul class="check">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Revisão da sua oferta e da sua margem antes de divulgar</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Ajuste dos roteiros de WhatsApp, Stories e anúncio local</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Plano hora a hora do Dia D fechado</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Gravação de todos os encontros</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco">
+      <h2 class="center">Veja a diferença na prática</h2>
+      <div class="vs">
+        <div class="a"><h3>Sozinho</h3><span>Você assiste às aulas e decide tudo por conta própria, sem ninguém revisar a oferta antes do Dia D.</span></div>
+        <div class="b"><h3>Com o Essencial</h3><span>Você chega ao Dia D com a oferta e o plano revisados por quem criou o método.</span></div>
+      </div>
+    </div>
+
+
+  </div>
+  <aside class="lateral">
+    <div class="papel lateral-card">
+      <div class="oferta-box">
+        <div class="cab">Oferta exclusiva desta página</div>
+        <div class="corpo">
+          <p class="de" data-pendente="preço do acompanhamento completo (upsell.preco)" data-se="upsell.preco">Na página anterior, o acompanhamento completo era <s data-f="upsell.preco">[R$]</s></p>
+          <p class="de">Aqui, o Essencial sai por:</p>
+          <div data-pendente="preço do Essencial (downsell.preco)" data-se="downsell.preco">
+            <div class="preco-verde" data-f="downsell.preco">[R$]</div>
+            <p class="parc" data-f="downsell.parcelamento"></p>
+          </div>
+          <a class="btn-verde" id="aceitar" href="#">Quero aproveitar!</a>
+          <p class="nota-teste" data-pendente="link de 1 clique da Ticto (ticto.downsellUrl)">Modo de teste: o botão simula a compra. Nenhum pagamento é feito.</p>
+          <a class="link-cinza" id="recusar" href="#">Não quero aproveitar.</a>
+        </div>
+      </div>
+      <p class="center small muted"><b>Como isso é possível?</b> Em vez de <span data-f="upsell.encontros">todos os</span> encontros do acompanhamento completo, você participa de <span data-f="downsell.encontros">[nº]</span>, nas fases mais decisivas da campanha.</p>
+    </div>
+  </aside>
+  </div>
+</div>
+
+<footer class="rodape">Copyright © <span data-f="rodapeEmpresa">Black Friday Explosiva</span> · 2026 · <a href="termos.html">Termos de uso</a> · <a href="privacidade.html">Política de privacidade</a></footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/funil.js"></script>
+<script>
+(function () {
+  var B = window.BFX, D = B.O.downsell || {}, U = B.O.upsell || {};
+  var tictoUrl = (B.O.ticto || {}).downsellUrl;
+  var reais = function (txt) { return parseFloat(String(txt || '').replace(/[^\d,]/g, '').replace(',', '.')) || 0; };
+  var de = reais(U.preco), por = reais(D.preco);
+  if (de && por && por < de) document.getElementById('pct').textContent = Math.round((1 - por / de) * 100) + '% mais barata';
+  var externo = function (u) { return /^https?:\/\//.test(u || ''); };
+  B.ligar(document.getElementById('aceitar'), tictoUrl, 'pagar.html?item=essencial', 'downsell_accept', tictoUrl ? null : 'Quero aproveitar! (teste)');
+  B.ligar(document.getElementById('recusar'), externo(D.recusarUrl) ? D.recusarUrl : null, D.recusarUrl || 'comunidade.html', 'downsell_decline');
+})();
+</script>
+</body>
+</html>

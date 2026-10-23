@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uma última oportunidade · Black Friday Explosiva</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/funil.css">
+</head>
+<body class="funil" data-pagina="upsell" data-requer="ticto.upsellUrl">
+<div class="revbar" role="note">Modo configuração</div>
+<div class="ok-bar">✓ <b>Pedido confirmado.</b> O acesso às aulas já está a caminho do seu e-mail.</div>
+
+<div class="ck larga">
+  <div class="faixa-vermelha">Espere! Seu pedido ainda não terminou</div>
+  <div class="grade">
+  <div class="papel">
+    <div class="bloco center">
+      <span class="eyebrow">Antes de ir, uma pergunta</span>
+      <h1>Quer fazer sua primeira campanha com o Daniel <em>olhando de perto?</em></h1>
+      <p>As aulas mostram o caminho. O acompanhamento é para quem quer revisar a oferta, os roteiros e o plano do Dia D com alguém do lado, até 27/11.</p>
+    </div>
+    <div class="video" id="video" data-pendente="vídeo curto do Daniel (upsell.youtubeId)" data-se="upsell.youtubeId"></div>
+
+    <div class="bloco">
+      <h2>O que está incluso</h2>
+      <ul class="check">
+        <li data-pendente="nº de encontros e formato" data-se="upsell.encontros upsell.formato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><span data-f="upsell.encontros">[nº]</span> encontros ao vivo com o Daniel, <span data-f="upsell.formato">[formato]</span></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Revisão da sua oferta e da sua margem antes do aquecimento</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Revisão dos roteiros de WhatsApp, Stories e anúncio local</span></li>
+        <li data-pendente="formato do suporte no Dia D" data-se="upsell.suporteDiaD"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Suporte na véspera e no Dia D, <span data-f="upsell.suporteDiaD">[formato]</span></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Gravação de todos os encontros</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco" data-pendente="confirmar datas dos encontros" data-se="upsell.datasConfirmadas">
+      <h2>Encontros nas fases do método</h2>
+      <div class="agenda">
+        <div class="it"><span class="d">06/11</span><div><h3>D-21 · Preparação</h3><p>Oferta, margem e lista de clientes.</p></div></div>
+        <div class="it"><span class="d">13/11</span><div><h3>D-14 · Aquecimento</h3><p>Revisão dos roteiros e do anúncio.</p></div></div>
+        <div class="it hot"><span class="d">26/11</span><div><h3>Véspera do Dia D</h3><p>Plano hora a hora e equipe pronta.</p></div></div>
+        <div class="it"><span class="d">04/12</span><div><h3>D+7 · Pós</h3><p>Resultado, recompra e próxima data.</p></div></div>
+      </div>
+    </div>
+
+    <div class="destaque-claro">
+      <h3>É para você se...</h3>
+      <p>Vai aplicar na Black Friday deste ano e quer reduzir o risco de errar a oferta ou chegar no Dia D sem a lista aquecida. Ou vai vender o serviço e quer segurança no primeiro cliente.</p>
+    </div>
+
+  </div>
+  <aside class="lateral">
+    <div class="papel lateral-card">
+      <div class="oferta-box">
+        <div class="cab">Acompanhamento com o Daniel</div>
+        <div class="corpo">
+          <div data-pendente="preço do acompanhamento" data-se="upsell.preco">
+            <div class="preco-verde" data-f="upsell.preco">[R$ ___]</div>
+            <p class="parc" data-f="upsell.parcelamento"></p>
+          </div>
+          <p class="small" data-pendente="nº real de vagas (só se houver limite)" data-se="upsell.vagas"><b data-f="upsell.vagas" data-f-pre="Vagas: "></b></p>
+          <a class="btn-verde" id="aceitar" href="#">Sim, quero o acompanhamento</a>
+          <p class="nota-teste" data-pendente="link de 1 clique da Ticto (ticto.upsellUrl)">Modo de teste: o botão simula a compra. Nenhum pagamento é feito.</p>
+          <a class="link-cinza" id="recusar" href="#">Não, obrigado. Vou seguir só com as aulas.</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+  </div>
+</div>
+
+<footer class="rodape">Copyright © <span data-f="rodapeEmpresa">Black Friday Explosiva</span> · 2026 · <a href="termos.html">Termos de uso</a> · <a href="privacidade.html">Política de privacidade</a></footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/funil.js"></script>
+<script>
+(function () {
+  var B = window.BFX, U = B.O.upsell || {};
+  var tictoUrl = (B.O.ticto || {}).upsellUrl;
+  if (U.youtubeId) {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(U.youtubeId) + '?rel=0&modestbranding=1';
+    f.title = 'Daniel explica o acompanhamento';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.loading = 'lazy';
+    document.getElementById('video').appendChild(f);
+  }
+  var externo = function (u) { return /^https?:\/\//.test(u || ''); };
+  B.ligar(document.getElementById('aceitar'), tictoUrl, 'pagar.html?item=acompanhamento', 'upsell_accept', tictoUrl ? null : 'Sim, quero o acompanhamento (teste)');
+  B.ligar(document.getElementById('recusar'), externo(U.recusarUrl) ? U.recusarUrl : null, U.recusarUrl || 'downsell.html', 'upsell_decline');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Último passo · Método Black Friday Explosiva</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#050505">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/funil.css">
+<style>
+body{background-image:none}
+.ck{max-width:680px;margin:0 auto;padding:16px 12px 40px}
+.banner-img{width:100%;height:auto;display:block;border-radius:10px}
+.papel{padding:22px 18px;display:grid;gap:20px}
+.seguro{display:flex;gap:6px;justify-content:center;align-items:center;font-size:.76rem;font-weight:700;color:#1e9f33;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #ececf0;padding-bottom:14px}
+.seguro svg{width:16px;height:16px}
+.prod{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center}
+.prod img{width:72px;height:72px;border-radius:8px;object-fit:cover}
+.prod b{display:block;font-size:.98rem}
+.prod .preco{display:block;font-family:Oswald,sans-serif;font-size:1.5rem;color:#1e9f33;line-height:1.1}
+.papel h2{font-size:1rem;font-weight:800;letter-spacing:0;color:#1d1d1f}
+.campos{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.campo{display:grid;gap:4px}
+.campo.full{grid-column:1/-1}
+@media (max-width:520px){.campos{grid-template-columns:1fr}}
+.campo label{font-size:.8rem;font-weight:700;color:#3a3a40}
+.campo input{font:500 .98rem Montserrat,sans-serif;color:#1d1d1f;background:#fff;border:1px solid #d6d6dc;border-radius:8px;padding:12px 12px;min-height:48px;width:100%}
+.campo input:focus{outline:2px solid #1e9f33;outline-offset:0;border-color:#1e9f33}
+.campo input[aria-invalid=true]{border-color:#d81f26;background:#fff6f6}
+.campo .erro{font-size:.76rem;color:#d81f26}
+.metodos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metodo{position:relative;border:2px solid #e2e2e8;border-radius:10px;padding:14px 12px;display:flex;gap:10px;align-items:center;cursor:pointer;background:#fff;text-align:left;color:#1d1d1f}
+.metodo svg{width:28px;height:28px;flex:none}
+.metodo b{display:block;font-size:.9rem}
+.metodo span{font-size:.74rem;color:#6b6b72}
+.metodo[aria-pressed=true]{border-color:#1e9f33;background:#f3fbf4}
+.metodo[aria-pressed=true]::after{content:"✓";position:absolute;top:-10px;right:-10px;width:22px;height:22px;border-radius:50%;background:#1e9f33;color:#fff;font-size:.8rem;display:grid;place-items:center}
+.area-cartao{border:1px solid #ececf0;border-radius:10px;padding:12px;min-height:80px}
+.teste-cartao{font-size:.86rem;color:#8a5a00;background:#fff7e6;border:1px dashed #e0a526;border-radius:8px;padding:14px}
+.info-pix{font-size:.88rem;color:#3a3a40;background:#f3fbf4;border-radius:8px;padding:14px}
+.caixa-oferta .corpo{padding:14px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.caixa-oferta input{appearance:none;-webkit-appearance:none;width:26px;height:26px;border-radius:50%;border:2px solid #1e9f33;display:grid;place-items:center;cursor:pointer;margin-top:2px;background:#fff}
+.caixa-oferta input:checked{background:#1e9f33}
+.caixa-oferta input:checked::after{content:"";width:7px;height:12px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.caixa-oferta label{font-weight:800;font-size:.95rem;cursor:pointer;line-height:1.35}
+.caixa-oferta label span{color:#d81f26;white-space:nowrap}
+.caixa-oferta p{font-size:.86rem;color:#55555c;grid-column:2;margin-top:-4px}
+.caixa-oferta.on{border-style:solid;border-color:#1e9f33}
+.caixa-oferta.on > .cab{background:#1e9f33}
+.detalhes{border:1px solid #ececf0;border-radius:8px;overflow:hidden;color:#1d1d1f}
+.detalhes .l{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;font-size:.9rem}
+.detalhes .l + .l{border-top:1px solid #ececf0}
+.detalhes .tot{background:#f6f6f8;font-weight:800}
+.detalhes .tot span:last-child{font-family:Oswald,sans-serif;font-size:1.25rem;color:#1e9f33}
+.nota{font-size:.78rem;color:#6b6b72;text-align:center}
+.nota a{color:#3a3a40}
+.alerta{border-radius:8px;padding:12px 14px;font-size:.9rem;font-weight:600}
+.alerta.erro{background:#fff1f1;color:#b3141b;border:1px solid #f3c2c4}
+.alerta.teste{background:#fff7e6;color:#8a5a00;border:1px dashed #e0a526}
+.btn-verde[disabled]{opacity:.7;cursor:wait}
+.pix{display:grid;gap:14px;text-align:center;justify-items:center;color:#1d1d1f}
+.pix img{width:220px;height:220px;image-rendering:pixelated;border:1px solid #ececf0;border-radius:8px}
+.pix textarea{width:100%;min-height:84px;font:500 .78rem/1.4 ui-monospace,monospace;border:1px solid #d6d6dc;border-radius:8px;padding:10px;resize:none;color:#1d1d1f}
+.aguardando{display:flex;gap:8px;align-items:center;font-size:.88rem;color:#3a3a40}
+.aguardando i{width:10px;height:10px;border-radius:50%;background:#1e9f33;animation:pulso 1.2s infinite}
+@keyframes pulso{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.aguardando i{animation:none}}
+</style>
+</head>
+<body class="funil" data-pagina="checkout" data-requer="pagamento.mpPublicKey pagamento.apiUrl">
+<div class="revbar" role="note">Modo configuração</div>
+<div class="prazo" id="prazo">Vendas encerram em <b id="cd">--</b> · oferta válida até 05/11, às 23h59</div>
+
+<div class="ck larga">
+  <div id="papel">
+  <form id="form" novalidate class="grade">
+    <div class="stack" style="gap:16px">
+      <img class="banner-img" src="assets/img/banner-checkout.png" alt="Último passo: você está a um passo de preparar a sua Black Friday Explosiva. Preencha seus dados e finalize sua compra." width="1200" height="640">
+      <div class="papel">
+    <div class="seguro"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg>Compra 100% segura</div>
+      <section aria-labelledby="h-dados" style="gap:12px">
+        <h2 id="h-dados">Cadastre seus dados</h2>
+        <div class="campos">
+          <div class="campo full"><label for="nome">Nome completo</label><input id="nome" name="nome" autocomplete="name" required><span class="erro" id="e-nome"></span></div>
+          <div class="campo"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required><span class="erro" id="e-email"></span></div>
+          <div class="campo"><label for="email2">Confirme seu e-mail</label><input id="email2" name="email2" type="email" autocomplete="email" inputmode="email" required><span class="erro" id="e-email2"></span></div>
+          <div class="campo"><label for="cpf">CPF</label><input id="cpf" name="cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14" required><span class="erro" id="e-cpf"></span></div>
+          <div class="campo"><label for="celular">Celular com DDD</label><input id="celular" name="celular" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(00) 00000-0000" maxlength="15" required><span class="erro" id="e-celular"></span></div>
+        </div>
+        <p class="nota" style="text-align:left">O acesso à Universidade dos Negócios chega neste e-mail.</p>
+      </section>
+      <section aria-labelledby="h-pag" style="gap:12px">
+        <h2 id="h-pag">Escolha a forma de pagamento</h2>
+        <div class="metodos" role="group" aria-label="Forma de pagamento">
+          <button type="button" class="metodo" data-metodo="cartao" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1e9f33" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><span><b>Cartão de crédito</b><span>em até <span data-f="pagamento.maxParcelas">12</span>x</span></span></button>
+          <button type="button" class="metodo" data-metodo="pix" aria-pressed="false"><svg viewBox="0 0 24 24" fill="#32bcad" aria-hidden="true"><path d="M12 2.5 21.5 12 12 21.5 2.5 12 12 2.5Zm0 4.2L6.7 12l5.3 5.3 5.3-5.3L12 6.7Z"/></svg><span><b>Pix</b><span>aprovação na hora</span></span></button>
+        </div>
+        <div id="area-cartao" class="area-cartao">
+          <div id="cartao"></div>
+          <div class="teste-cartao" id="cartao-teste" hidden><b>Modo de teste:</b> aqui aparecem os campos do cartão do Mercado Pago (número, nome, validade, CVV e parcelas) quando a chave for configurada. Nada é cobrado agora.</div>
+        </div>
+        <div id="area-pix" class="info-pix" hidden>Ao clicar em <b>Comprar agora</b>, o QR Code do Pix aparece na tela. Pague pelo app do seu banco: a confirmação é automática e o acesso é liberado em seguida.</div>
+      </section>
+      </div>
+    </div>
+
+    <aside class="lateral">
+      <div class="papel lateral-card">
+        <h2>Seu pedido</h2>
+    <div class="prod">
+      <img src="assets/img/daniel-rosto.jpg" alt="" width="320" height="320">
+      <div><b data-f="principal.nome">Método Black Friday Explosiva</b><span class="preco" data-f="principal.preco">R$67</span><span class="muted small">à vista no Pix, ou parcelado no cartão <span data-f="parcelamento"></span></span></div>
+    </div>
+      <div class="caixa-oferta" id="bump" data-pendente="preço e nº de planos do App (bump.preco, bump.planos)" data-se="bump.preco bump.planos">
+        <div class="cab">Gere o plano da sua campanha em minutos!</div>
+        <div class="corpo">
+          <input id="bump-check" type="checkbox">
+          <label for="bump-check">APP GERADOR DE PLANO · por mais <span data-f="bump.preco">[R$ __]</span></label>
+          <p>Você informa segmento, ticket médio, cidade e tamanho da lista de clientes, e o app entrega o plano da campanha dia a dia, do D-21 ao D+7. Inclui <b data-f="bump.planos">[nº]</b> planos.</p>
+        </div>
+      </div>
+
+      <section aria-labelledby="h-det" style="gap:10px">
+        <h2 id="h-det">Detalhes da compra</h2>
+        <div class="detalhes">
+          <div class="l"><span data-f="principal.nome">Método Black Friday Explosiva</span><span data-f="principal.preco">R$67</span></div>
+          <div class="l" id="linha-bump" hidden><span>App Gerador de Plano</span><span data-f="bump.preco">[R$ __]</span></div>
+          <div class="l tot"><span>Total</span><span id="total">R$67</span></div>
+        </div>
+      </section>
+
+      <div class="alerta erro" id="erro" role="alert" hidden></div>
+      <div class="alerta teste" data-pendente="chave pública do Mercado Pago e endereço das funções (pagamento.mpPublicKey, pagamento.apiUrl)">Modo de teste: "Comprar agora" valida os dados e simula a compra. Nenhum pagamento é feito.</div>
+      <button class="btn-verde" id="comprar" type="submit">Comprar agora</button>
+      <p class="nota">Pagamento processado com segurança pelo Mercado Pago. Garantia de 7 dias<span id="garantia-app"></span>.
+        Ao comprar, você concorda com os <a id="link-termos" href="#">Termos de Uso</a> e a <a id="link-priv" href="#">Política de Privacidade</a>.</p>
+      </div>
+    </aside>
+  </form>
+  </div>
+
+  <!-- tela do Pix (aparece depois de "Comprar agora") -->
+  <div class="papel pix" id="tela-pix" hidden style="max-width:560px;margin:0 auto">
+    <h2 style="font-size:1.3rem">Pague com Pix para liberar seu acesso</h2>
+    <p class="muted small">Abra o app do seu banco, escolha <b>Pix &gt; Ler QR Code</b> ou use o <b>copia e cola</b>.</p>
+    <img id="pix-qr" alt="QR Code do Pix" width="220" height="220">
+    <label for="pix-codigo" class="small" style="font-weight:700">Pix copia e cola</label>
+    <textarea id="pix-codigo" readonly></textarea>
+    <button class="btn-verde" type="button" id="copiar">Copiar código Pix</button>
+    <div class="aguardando" aria-live="polite"><i></i><span id="pix-status">Aguardando a confirmação do pagamento...</span></div>
+    <p class="nota" id="pix-expira"></p>
+  </div>
+</div>
+
+<footer class="rodape">Copyright © <span data-f="rodapeEmpresa">Black Friday Explosiva</span> · 2026 · <a href="termos.html">Termos de uso</a> · <a href="privacidade.html">Política de privacidade</a></footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/funil.js"></script>
+<script src="assets/pagamento.js"></script>
+<script>
+(function () {
+  var B = window.BFX, O = B.O, PG = window.PAGAMENTO, P = O.pagamento || {};
+  var $ = function (id) { return document.getElementById(id); };
+  var reais = function (txt) { return parseFloat(String(txt || '').replace(/[^\d,]/g, '').replace(',', '.')) || 0; };
+  var brl = function (v) { return 'R$' + v.toLocaleString('pt-BR', { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 }); };
+  var bumpCfg = O.bump || {}, principal = O.principal || { item: 'metodo', preco: 'R$67' };
+  var bumpAtivo = !$('bump').hasAttribute('data-pendente') || B.revisao;
+  var comBump = function () { return bumpAtivo && $('bump-check').checked; };
+  var totalReais = function () { return reais(principal.preco) + (comBump() ? reais(bumpCfg.preco) : 0); };
+  var metodo = 'cartao', cartao = null;
+
+  if (bumpCfg.garantiaCobreApp === true) $('garantia-app').textContent = ', inclusive o App';
+  if (P.termosUrl) $('link-termos').href = P.termosUrl; else $('link-termos').removeAttribute('href');
+  if (P.privacidadeUrl) $('link-priv').href = P.privacidadeUrl; else $('link-priv').removeAttribute('href');
+
+  // ---------- prazo real de vendas
+  var fim = new Date(O.vendasAte).getTime();
+  (function tick() {
+    var s = Math.max(0, Math.floor((fim - Date.now()) / 1000));
+    if (!s || isNaN(s)) { $('prazo').hidden = true; return; }
+    $('cd').textContent = Math.floor(s / 86400) + 'd ' + String(Math.floor(s % 86400 / 3600)).padStart(2, '0') + 'h ' + String(Math.floor(s % 3600 / 60)).padStart(2, '0') + 'min';
+    setTimeout(tick, 30000);
+  })();
+  if (B.encerrado) { $('comprar').textContent = 'Vendas encerradas'; $('comprar').disabled = true; return; }
+
+  // ---------- máscaras
+  $('cpf').addEventListener('input', function (e) {
+    var d = e.target.value.replace(/\D/g, '').slice(0, 11);
+    e.target.value = d.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  });
+  $('celular').addEventListener('input', function (e) {
+    var d = e.target.value.replace(/\D/g, '').slice(0, 11);
+    e.target.value = d.length > 10 ? d.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3') : d.replace(/(\d{2})(\d{0,4})(\d{0,4})/, '($1) $2-$3').replace(/-$/, '');
+  });
+
+  // ---------- validação (a mesma regra é aplicada de novo no servidor)
+  function cpfValido(c) {
+    c = c.replace(/\D/g, '');
+    if (c.length !== 11 || /^(\d)\1{10}$/.test(c)) return false;
+    function dv(base, peso) { var s = 0; for (var i = 0; i < base.length; i++) s += +base[i] * peso--; var r = s * 10 % 11; return r === 10 ? 0 : r; }
+    return dv(c.slice(0, 9), 10) === +c[9] && dv(c.slice(0, 10), 11) === +c[10];
+  }
+  function marcar(id, msg) { $(id).setAttribute('aria-invalid', msg ? 'true' : 'false'); $('e-' + id).textContent = msg || ''; return !msg; }
+  function validar() {
+    var nome = $('nome').value.trim().replace(/\s+/g, ' '), email = $('email').value.trim().toLowerCase();
+    var ok = [
+      marcar('nome', nome.length >= 3 && nome.indexOf(' ') > 0 ? '' : 'Informe seu nome completo.'),
+      marcar('email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? '' : 'Informe um e-mail válido.'),
+      marcar('email2', $('email2').value.trim().toLowerCase() === email ? '' : 'Os e-mails não são iguais.'),
+      marcar('cpf', cpfValido($('cpf').value) ? '' : 'Informe um CPF válido.'),
+      marcar('celular', $('celular').value.replace(/\D/g, '').length >= 10 ? '' : 'Informe o celular com DDD.')
+    ].every(Boolean);
+    if (!ok) { var p = document.querySelector('[aria-invalid=true]'); if (p) p.focus(); }
+    return ok ? { nome: nome, email: email, cpf: $('cpf').value.replace(/\D/g, ''), celular: $('celular').value.replace(/\D/g, '') } : null;
+  }
+  ['nome', 'email', 'email2', 'cpf', 'celular'].forEach(function (id) {
+    $(id).addEventListener('blur', function () { if ($(id).getAttribute('aria-invalid') === 'true') validar(); });
+  });
+
+  // ---------- forma de pagamento
+  document.querySelectorAll('.metodo').forEach(function (b) {
+    b.addEventListener('click', function () {
+      metodo = b.getAttribute('data-metodo');
+      document.querySelectorAll('.metodo').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      $('area-cartao').hidden = metodo !== 'cartao';
+      $('area-pix').hidden = metodo !== 'pix';
+      B.track('metodo_' + metodo);
+    });
+  });
+  if (PG.ativo) {
+    PG.montarCartao('cartao', totalReais()).then(function (c) { cartao = c; }).catch(function (e) { erro(e.message); });
+  } else {
+    $('cartao-teste').hidden = false;
+  }
+
+  // ---------- order bump e total
+  function atualizar() {
+    $('bump').classList.toggle('on', comBump());
+    $('linha-bump').hidden = !comBump();
+    $('total').textContent = brl(totalReais());
+    if (cartao) cartao.atualizarValor(totalReais());
+  }
+  $('bump-check').addEventListener('change', function () { B.track($('bump-check').checked ? 'bump_add' : 'bump_remove'); atualizar(); });
+  atualizar();
+
+  function erro(msg) { $('erro').textContent = msg || ''; $('erro').hidden = !msg; if (msg) $('erro').scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+  function irParaUpsell(teste) { location.href = 'upsell.html' + (teste ? '?teste=1' : ''); }
+
+  // ---------- comprar
+  $('form').addEventListener('submit', async function (ev) {
+    ev.preventDefault(); erro('');
+    var comprador = validar();
+    if (!comprador) return;
+    var itens = [principal.item].concat(comBump() ? [bumpCfg.item] : []);
+    B.track('begin_checkout', { valor: totalReais(), bump: comBump(), metodo: metodo });
+
+    if (!PG.ativo) { B.track('checkout_teste'); return irParaUpsell(true); }
+
+    var btn = $('comprar'); btn.disabled = true; btn.textContent = 'Processando...';
+    try {
+      var corpo = { itens: itens, metodo: metodo, comprador: comprador, utm: (function () { try { return JSON.parse(sessionStorage.getItem('bfx_utm') || '{}'); } catch (e) { return {}; } })() };
+      if (metodo === 'cartao') {
+        if (!cartao) throw new Error('Os campos do cartão ainda estão carregando. Tente de novo em instantes.');
+        corpo.cartao = await cartao.obterDados();
+      }
+      var r = await PG.criarPagamento(corpo);
+      PG.lembrarPedido(r.pedido);
+      if (r.status === 'pago') { B.track('purchase', { valor: totalReais(), metodo: metodo }); return irParaUpsell(false); }
+      if (r.status === 'recusado') throw new Error('Pagamento recusado pelo emissor do cartão. Confira os dados ou tente outro cartão ou o Pix.');
+      mostrarPix(r); // Pix: QR Code; cartão em análise: aguarda a confirmação
+    } catch (e) {
+      erro(e.message);
+      btn.disabled = false; btn.textContent = 'Comprar agora';
+    }
+  });
+
+  function mostrarPix(r) {
+    $('papel').hidden = true; $('tela-pix').hidden = false; window.scrollTo(0, 0);
+    if (r.pix) {
+      if (r.pix.qr_base64) $('pix-qr').src = 'data:image/png;base64,' + r.pix.qr_base64; else $('pix-qr').hidden = true;
+      $('pix-codigo').value = r.pix.copia_e_cola || '';
+      if (r.pix.expira_em) $('pix-expira').textContent = 'O código vale até ' + new Date(r.pix.expira_em).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }) + '.';
+    } else {
+      ['pix-qr', 'pix-codigo', 'copiar'].forEach(function (id) { $(id).hidden = true; });
+      document.querySelector('label[for=pix-codigo]').hidden = true;
+      document.querySelector('#tela-pix h2').textContent = 'Seu pagamento está em análise';
+    }
+    PG.acompanhar(r.pedido, function () {
+      $('pix-status').textContent = 'Pagamento confirmado! Abrindo seu acesso...';
+      B.track('purchase', { valor: totalReais(), metodo: metodo });
+      setTimeout(function () { irParaUpsell(false); }, 1200);
+    }, function () { $('pix-status').textContent = 'O pagamento não foi concluído. Recarregue a página para tentar de novo.'; });
+  }
+  $('copiar').addEventListener('click', function () {
+    var t = $('pix-codigo'); t.select();
+    (navigator.clipboard ? navigator.clipboard.writeText(t.value) : Promise.reject()).catch(function () { document.execCommand('copy'); });
+    $('copiar').textContent = 'Código copiado!';
+    setTimeout(function () { $('copiar').textContent = 'Copiar código Pix'; }, 2500);
+  });
+})();
+</script>
+</body>
+</html>

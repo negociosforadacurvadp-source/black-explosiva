@@ -1,0 +1,38 @@
+BLACK FRIDAY EXPLOSIVA — FUNIL DE VENDAS (pagamento direto + Universidade dos Negócios)
+======================================================================================
+
+COMO ABRIR NO SEU COMPUTADOR
+  Dê dois cliques em ABRIR-PAGINA.bat  ->  abre http://localhost:5180
+  (não abra os .html direto do arquivo: o vídeo e a configuração não carregam assim)
+  No ar, o funil fica em  SEU-DOMINIO/black-explosiva/
+
+O CAMINHO DO CLIENTE
+  index.html       Página de vendas (abre por completo após 80% do vídeo)
+  promessa.html    Mesma página de vendas SEM vídeo: abre completa, com a promessa no topo
+  checkout.html    Dados (nome, e-mail, CPF, celular) + Pix ou cartão + order bump (App)
+  upsell.html      Acompanhamento com o Daniel  -> "sim" vai para pagar.html
+     | "não"
+  downsell.html    "Espera um pouco..." Acompanhamento Essencial -> "sim" vai para pagar.html
+     | "não"
+  comunidade.html  Comunidade -> "sim" vai para pagar.html
+  pagar.html       Pagamento rápido das ofertas (reaproveita os dados da 1ª compra)
+  obrigado.html    Parabéns, próximos passos, calendário e suporte
+  termos.html      Termos de Uso e de Compra
+  privacidade.html Política de Privacidade (LGPD)
+
+  O pagamento é feito pelo Mercado Pago. Quando ele CONFIRMA, o servidor cria a conta
+  do comprador na Universidade dos Negócios (e-mail de convite para criar a senha)
+  e libera o curso. Detalhes: docs/operations/pagamento-direto.md
+
+ONDE MEXER
+  assets/config.js     Preços MOSTRADOS, textos variáveis, chave pública do Mercado Pago.
+                       Valores "SUGESTÃO" são propostas: confirme antes de publicar.
+  supabase/seed/funil_produtos.sql   Preços COBRADOS e qual curso cada produto libera.
+                       Mantenha iguais aos do config.js.
+  assets/funil.css / funil.js / pagamento.js   Visual e lógica compartilhados
+  assets/img           Imagens (inclui o banner do checkout)
+
+MODO DE TESTE
+  Sem a chave do Mercado Pago em assets/config.js, o funil roda em modo de teste:
+  dá para preencher os dados e navegar por todas as páginas; nenhum pagamento acontece.
+  Uma faixa vermelha no topo mostra o que falta. Para ver tudo marcado: ?revisao=1 no link.

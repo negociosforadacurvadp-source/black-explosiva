@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parabéns pela decisão! · Black Friday Explosiva</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/funil.css">
+<style>
+.hero-img{width:100%;height:auto;border-radius:10px}
+.aviso-email{background:#fff7e6;border:1px solid #f1d38a;border-radius:10px;padding:14px;color:#6b4a00;font-size:.92rem}
+.passos{display:grid;gap:16px}
+.passo{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
+.passo .n{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:Oswald,sans-serif;font-size:1.1rem;color:#fff;background:#1e9f33}
+.cal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cal .c{border:1px solid #ececf0;border-radius:10px;padding:12px 14px;background:#f6f6f8}
+.cal .c b{display:block;font-family:Oswald,sans-serif;font-size:1.05rem;color:#111}
+.cal .c span{color:#6b6b72;font-size:.86rem}
+.cal .c.full{grid-column:1/-1;border-color:#d81f26;background:#fff}
+.cal .c.dday{background:#1e9f33;border-color:#1e9f33}
+.cal .c.dday b,.cal .c.dday span{color:#fff}
+</style>
+</head>
+<body class="funil" data-pagina="obrigado" data-requer="obrigado.remetente obrigado.grupoAvisosUrl obrigado.suporte">
+<div class="revbar" role="note">Modo configuração</div>
+<div class="ok-bar">✓ <b>Compra concluída.</b> Obrigado por confiar no Método Black Friday Explosiva.</div>
+
+<div class="ck larga">
+  <div class="faixa-verde">Parabéns pela decisão!</div>
+  <div class="grade">
+  <div class="papel">
+    <img class="hero-img" src="assets/img/og.jpg" alt="Daniel Pereira, Método Black Friday Explosiva" width="1080" height="567">
+    <div class="bloco center">
+      <h1>Seu acesso chegará no seu e-mail <em>em poucos minutos</em></h1>
+      <p class="aviso-email">Confira o mesmo e-mail que você colocou na hora da compra e olhe também o spam e a aba Promoções.<span data-f="obrigado.remetente" data-f-pre=" O remetente é "></span> As aulas ficam na área de membros da <b>Universidade dos Negócios</b>: entre com o mesmo e-mail da compra.</p>
+      <a class="btn-verde" id="plataforma" href="#" data-pendente="endereço da Universidade (obrigado.plataformaUrl)" data-se="obrigado.plataformaUrl">Acessar a área de membros</a>
+    </div>
+
+  </div>
+  <aside class="lateral">
+  <div class="papel lateral-card">
+    <div class="bloco">
+      <h2>Seus próximos passos</h2>
+      <div class="passos">
+        <div class="passo" data-pendente="link do grupo de avisos (obrigado.grupoAvisosUrl)" data-se="obrigado.grupoAvisosUrl"><span class="n">1</span><div><h3>Entre no grupo de avisos</h3>
+          <p>É por lá que chegam os lembretes de cada fase. <a id="grupo" href="#" style="color:#1e9f33;font-weight:700">Entrar no grupo</a></p></div></div>
+        <div class="passo"><span class="n" id="n2">2</span><div><h3>Assista às aulas e marque o ao vivo</h3>
+          <p>A aula final é ao vivo em 27/10<span data-f="horarioAoVivo" data-f-pre=", às "></span>. Se você entrou depois, a gravação já está na área de aulas.</p></div></div>
+      </div>
+    </div>
+
+    <div class="bloco">
+      <h2>Seu calendário</h2>
+      <div class="cal">
+        <div class="c full"><b>27/10 · Aula ao vivo</b><span>Última aula, com o Daniel tirando dúvidas</span></div>
+        <div class="c"><b>06/11 · D-21</b><span>Preparação</span></div>
+        <div class="c"><b>13/11 · D-14</b><span>Aquecimento</span></div>
+        <div class="c dday"><b>27/11 · Dia D</b><span>Black Friday</span></div>
+        <div class="c"><b>04/12 · D+7</b><span>Pós</span></div>
+      </div>
+    </div>
+
+    <p class="small muted center" data-pendente="contato do suporte (obrigado.suporte)" data-se="obrigado.suporte">Problema com o acesso? Fale com o suporte: <b data-f="obrigado.suporte"></b>.</p>
+  </div>
+  </aside>
+  </div>
+</div>
+
+<footer class="rodape">Copyright © <span data-f="rodapeEmpresa">Black Friday Explosiva</span> · 2026 · <a href="termos.html">Termos de uso</a> · <a href="privacidade.html">Política de privacidade</a></footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/funil.js"></script>
+<script>
+(function () {
+  var B = window.BFX, Ob = B.O.obrigado || {};
+  var grupo = document.getElementById('grupo'), plat = document.getElementById('plataforma');
+  if (Ob.grupoAvisosUrl) { grupo.href = Ob.grupoAvisosUrl; grupo.target = '_blank'; grupo.rel = 'noopener'; }
+  if (Ob.plataformaUrl) { plat.href = Ob.plataformaUrl; plat.target = '_blank'; plat.rel = 'noopener'; }
+  grupo.addEventListener('click', function () { B.track('grupo_avisos_click'); });
+  plat.addEventListener('click', function () { B.track('plataforma_click'); });
+  // Sem o passo do grupo visível, as aulas viram o passo 1
+  if (document.querySelector('.passo[data-pendente]') && !B.revisao) document.getElementById('n2').textContent = '1';
+  B.track('obrigado_view');
+})();
+</script>
+</body>
+</html>
