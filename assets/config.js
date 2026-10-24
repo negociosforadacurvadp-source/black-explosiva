@@ -35,10 +35,8 @@ window.OFERTA = {
   principal: { item: "metodo", nome: "Método Black Friday Explosiva", preco: "R$67" },
   vendasAte: "2026-11-05T23:59:59-03:00",
   parcelamento: "",                // ex.: "ou 12x de R$ 6,93" (valor real com juros da Ticto)
-  horarioAoVivo: "",               // ex.: "20h (horário de Brasília)"
-  plataformaAoVivo: "",            // ex.: "Zoom"
   tempoAcesso: "O acesso é vitalício: você assiste às aulas quantas vezes quiser, sem prazo para acabar.",
-  bio: "Daniel é fundador da Negócios Fora da Curva, a maior escola de negócios do Tocantins. Já treinou mais de 15 mil pessoas dentro de empresas em 9 estados do Brasil, formando vendedores, gerentes e donos de negócio.\n\nA autoridade dele não veio da teoria. Daniel chegou a dever mais de R$ 1 milhão, foi despejado durante a pandemia e já ensinou um dia inteiro por R$ 50. Reconstruiu tudo aplicando exatamente o que está neste método: rotina, reunião, contratação e gente certa no lugar certo.\n\nO Método Black Friday Explosiva reúne os documentos que ele usa na própria sede e nas empresas que acompanha, organizados para qualquer líder aplicar sozinho.",  // bio do Daniel (parágrafos separados por linha em branco)
+  bio: "Daniel Pereira é fundador do Negócios Fora da Curva, a maior escola de negócios do Tocantins. Há mais de 10 anos atua no desenvolvimento de empresários e equipes comerciais, já impactando mais de 20 mil empresas em todo o Brasil por meio de treinamentos, mentorias e consultorias. É especialista em vendas, liderança, gestão e crescimento empresarial.",  // bio do Daniel (texto do Kaio) (parágrafos separados por linha em branco)
   rodapeEmpresa: "Negócios Fora da Curva · CNPJ 22.830.839/0001-90",
   empresa: { razaoSocial: "Negócios Fora da Curva", cnpj: "22.830.839/0001-90" },
   contatoEmail: "",                // e-mail para dúvidas, cancelamentos e pedidos de privacidade (LGPD). OBRIGATÓRIO antes de publicar
@@ -59,7 +57,7 @@ window.OFERTA = {
     encontros: "4",                // SUGESTÃO: um por fase do método
     formato: "em grupo",           // SUGESTÃO
     suporteDiaD: "pelo grupo do WhatsApp",  // SUGESTÃO
-    datasConfirmadas: true,        // SUGESTÃO: 06/11, 13/11, 26/11 e 04/12 (confirmar com o Daniel)
+    datasConfirmadas: true,        // SUGESTÃO: um encontro por fase (confirmar com o Daniel)
     vagas: "",                     // só preencha se houver limite REAL de vagas
     youtubeId: "",                 // vídeo curto do Daniel explicando o acompanhamento
     recusarUrl: "downsell.html"    // quem diz "não" vai para o downsell
@@ -71,7 +69,7 @@ window.OFERTA = {
     preco: "R$147",                // SUGESTÃO (o preço "de" vem de upsell.preco)
     parcelamento: "",              // ex.: "ou 12x de R$ 15,20"
     encontros: "2",                // SUGESTÃO
-    quais: "D-21 (preparação) e véspera do Dia D",  // SUGESTÃO
+    quais: "a preparação e a véspera do Dia D",  // SUGESTÃO
     recusarUrl: "comunidade.html"
   },
 
