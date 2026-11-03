@@ -7,8 +7,8 @@ COMO ABRIR NO SEU COMPUTADOR
   No ar, o funil fica em  SEU-DOMINIO/black-explosiva/
 
 O CAMINHO DO CLIENTE
-  index.html       Página de vendas (abre por completo após 80% do vídeo)
-  promessa.html    Mesma página de vendas SEM vídeo: abre completa, com a promessa no topo
+  index.html       Página principal: venda SEM vídeo, com a promessa no topo
+  video.html       Versão com vídeo (abre por completo após 80% do vídeo)
   checkout.html    Dados (nome, e-mail, CPF, celular) + Pix ou cartão + order bump (App)
   upsell.html      Acompanhamento com o Daniel  -> "sim" vai para pagar.html
      | "não"
