@@ -36,7 +36,7 @@ window.OFERTA = {
   vendasDe: "2026-11-09T00:00:00-03:00",   // início das vendas (contagem regressiva); a Ticto controla o fim
   parcelamento: "",                // ex.: "ou 12x de R$ 6,93" (valor real com juros da Ticto)
   tempoAcesso: "O acesso é vitalício: você assiste às aulas quantas vezes quiser, sem prazo para acabar.",
-  bio: "Daniel Pereira é fundador do Negócios Fora da Curva, a maior escola de negócios do Tocantins. Há mais de 10 anos atua no desenvolvimento de empresários e equipes comerciais, já impactando mais de 20 mil empresas em todo o Brasil por meio de treinamentos, mentorias e consultorias. É especialista em vendas, liderança, gestão e crescimento empresarial.",  // bio do Daniel (texto do Kaio) (parágrafos separados por linha em branco)
+  bio: "Daniel Pereira é fundador do Negócios Fora da Curva, a maior escola de negócios do Tocantins. Há mais de 10 anos atua no desenvolvimento de empresários e equipes comerciais, já impactando mais de 20 mil empresas em todo o Brasil por meio de treinamentos, mentorias e consultorias. É especialista em vendas e liderança.",  // bio do Daniel (texto do Kaio) (parágrafos separados por linha em branco)
   rodapeEmpresa: "Negócios Fora da Curva · CNPJ 22.830.839/0001-90",
   empresa: { razaoSocial: "Negócios Fora da Curva", cnpj: "22.830.839/0001-90" },
   contatoEmail: "",                // e-mail para dúvidas, cancelamentos e pedidos de privacidade (LGPD). OBRIGATÓRIO antes de publicar
