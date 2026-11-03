@@ -353,9 +353,11 @@ html:not(.js) .rv{opacity:1;transform:none}
           <div class="lesson rv"><span class="k gold">06</span><div><h3>Aquecendo a sua Black ao ponto de ebulição</h3></div></div>
           <div class="lesson rv"><span class="k gold">07</span><div><h3>Apertando o Play da Black que vende</h3></div></div>
           <div class="lesson rv"><span class="k gold">08</span><div><h3>Vendendo e batendo metas</h3></div></div>
-          <div class="lesson rv"><span class="k gold">09</span><div><h3>Aula bônus: como fazer seu time vender mais</h3></div></div>
+          <div class="lesson rv"><span class="k gold">09</span><div><h3>Bônus: como fazer seu time vender mais</h3></div></div>
+          <div class="lesson rv"><span class="k gold">10</span><div><h3>Bônus: dúvidas e recomendações</h3></div></div>
+          <div class="lesson rv"><span class="k gold">11</span><div><h3>Bônus: aulas bônus</h3></div></div>
         </div>
-        <div class="center mt rv"><a class="btn js-cta js-buy" data-pos="aulas" href="#oferta">Quero o método por R$67</a></div>
+        <div class="center mt rv"><a class="btn js-cta js-buy" data-pos="aulas" href="#oferta">Quero o método por R$97</a></div>
       </div>
     </section>
 
@@ -389,10 +391,10 @@ html:not(.js) .rv{opacity:1;transform:none}
             <div class="ticket-top"><span>Acesso imediato</span></div>
             <div class="ticket-body">
               <h3 id="h-of" class="gold">Método Black Friday Explosiva</h3>
-              <div><div class="price gold">R$67</div><p class="pay">à vista no Pix ou parcelado no cartão <span data-f="parcelamento"></span></p></div>
+              <div><div class="price gold">R$97</div><p class="pay">à vista no Pix ou parcelado no cartão <span data-f="parcelamento"></span></p></div>
               <ul class="check">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Aulas gravadas com Daniel Pereira, liberadas na hora</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Método completo em 4 fases, com aula bônus para seu time vender mais</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>11 aulas gravadas com Daniel Pereira, sendo 3 bônus, liberadas na hora</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Método completo em 4 fases, do preparo à Black que vende</li>
               </ul>
               <a class="btn btn-block js-cta js-buy" data-pos="oferta" href="#oferta">Quero entrar agora</a>
               <p class="deadline" id="deadline">Vendas até <b>05/11, às 23h59</b>.</p>
@@ -413,7 +415,7 @@ html:not(.js) .rv{opacity:1;transform:none}
           <details data-pendente="tempo de acesso às aulas"><summary>Por quanto tempo tenho acesso?</summary><p data-f="tempoAcesso"></p></details>
           <details><summary>O resultado é garantido?</summary><p>Não. Cada negócio é diferente e o resultado depende da oferta, da cidade e da execução.</p></details>
         </div>
-        <div class="center mt rv"><a class="btn js-cta js-buy" data-pos="final" href="#oferta">Quero o método por R$67</a></div>
+        <div class="center mt rv"><a class="btn js-cta js-buy" data-pos="final" href="#oferta">Quero o método por R$97</a></div>
       </div>
     </section>
   </div>
@@ -429,7 +431,7 @@ html:not(.js) .rv{opacity:1;transform:none}
 </footer>
 
 <div class="mbar" id="mbar" aria-hidden="true">
-  <div class="t"><b>R$67</b>Vendas até 05/11</div>
+  <div class="t"><b>R$97</b>Vendas até 05/11</div>
   <a class="btn js-cta js-buy" data-pos="barra-mobile" href="#oferta" tabindex="-1">Quero o método</a>
 </div>
 
@@ -474,7 +476,7 @@ html:not(.js) .rv{opacity:1;transform:none}
   var fim = new Date(O.vendasAte).getTime();
   var encerrado = Date.now() > fim;
 
-  // Botões de compra levam ao checkout da página (checkout.html); o início real do pagamento é medido lá.
+  // Botões de compra levam ao checkout da Ticto (ticto.checkoutUrl).
   document.querySelectorAll('.js-cta').forEach(function (a) {
     if (encerrado && a.classList.contains('js-buy')) {
       a.textContent = 'Vendas encerradas'; a.setAttribute('aria-disabled', 'true'); a.removeAttribute('href'); return;
@@ -487,7 +489,7 @@ html:not(.js) .rv{opacity:1;transform:none}
         Object.keys(origem).forEach(function (k) { if (!u.searchParams.has(k)) u.searchParams.set(k, origem[k]); });
         a.href = u.toString();
       } else {
-        a.href = 'checkout.html'; // simulação do funil enquanto o link da Ticto não está configurado
+        a.href = '#oferta'; // sem link da Ticto configurado, o botão fica na oferta
       }
     }
     a.addEventListener('click', function () {

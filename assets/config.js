@@ -32,7 +32,7 @@ window.OFERTA = {
   },
 
   // =============== PRODUTO PRINCIPAL: Método Black Friday Explosiva
-  principal: { item: "metodo", nome: "Método Black Friday Explosiva", preco: "R$67" },
+  principal: { item: "metodo", nome: "Método Black Friday Explosiva", preco: "R$97" },
   vendasAte: "2026-11-05T23:59:59-03:00",
   parcelamento: "",                // ex.: "ou 12x de R$ 6,93" (valor real com juros da Ticto)
   tempoAcesso: "O acesso é vitalício: você assiste às aulas quantas vezes quiser, sem prazo para acabar.",
