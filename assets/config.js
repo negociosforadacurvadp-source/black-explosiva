@@ -15,7 +15,7 @@ window.OFERTA = {
 
   // =============== TICTO: checkout, upsell de 1 clique e área de membros
   ticto: {
-    checkoutUrl: "",               // link do checkout do Método (Ticto > Produto > Links/Ofertas). Order bump do App: configurar no checkout da Ticto
+    checkoutUrl: "https://negociosforadacurva.herospark.co/mentoria-black-explosiva",               // link do checkout do Método (Ticto > Produto > Links/Ofertas). Order bump do App: configurar no checkout da Ticto
     upsellUrl: "",                 // link de 1 clique do Acompanhamento (oferta de upsell na Ticto)
     downsellUrl: "",               // link de 1 clique do Acompanhamento Essencial
     comunidadeUrl: "",             // link de 1 clique da Comunidade
