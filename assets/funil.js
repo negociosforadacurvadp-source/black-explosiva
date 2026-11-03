@@ -79,7 +79,7 @@
 
   window.BFX = {
     O: O, get: get, tem: tem, track: track, comUtm: comUtm, repassar: repassar, ligar: ligar,
-    revisao: revisao, teste: teste, encerrado: Date.now() > new Date(O.vendasAte).getTime()
+    revisao: revisao, teste: teste, encerrado: false
   };
   track('page_view');
 })();
