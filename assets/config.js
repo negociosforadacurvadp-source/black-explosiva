@@ -15,7 +15,7 @@ window.OFERTA = {
 
   // =============== TICTO: checkout, upsell de 1 clique e área de membros
   ticto: {
-    checkoutUrl: "https://negociosforadacurva.herospark.co/mentoria-black-explosiva",               // link do checkout do Método (Ticto > Produto > Links/Ofertas). Order bump do App: configurar no checkout da Ticto
+    checkoutUrl: "https://negociosforadacurva.herospark.co/mentoria-black-explosiva",               // link do checkout da Mentoria (Ticto > Produto > Links/Ofertas). Order bump do App: configurar no checkout da Ticto
     upsellUrl: "",                 // link de 1 clique do Acompanhamento (oferta de upsell na Ticto)
     downsellUrl: "",               // link de 1 clique do Acompanhamento Essencial
     comunidadeUrl: "",             // link de 1 clique da Comunidade
@@ -31,8 +31,8 @@ window.OFERTA = {
     privacidadeUrl: "privacidade.html"
   },
 
-  // =============== PRODUTO PRINCIPAL: Método Black Friday Explosiva
-  principal: { item: "metodo", nome: "Método Black Friday Explosiva", preco: "R$97" },
+  // =============== PRODUTO PRINCIPAL: Mentoria Black Friday Explosiva
+  principal: { item: "mentoria", nome: "Mentoria Black Friday Explosiva", preco: "R$97" },
   vendasDe: "2026-11-09T00:00:00-03:00",   // início das vendas (contagem regressiva); a Ticto controla o fim
   parcelamento: "",                // ex.: "ou 12x de R$ 6,93" (valor real com juros da Ticto)
   tempoAcesso: "O acesso é vitalício: você assiste às aulas quantas vezes quiser, sem prazo para acabar.",
@@ -54,7 +54,7 @@ window.OFERTA = {
     item: "acompanhamento",
     preco: "R$297",                // SUGESTÃO
     parcelamento: "",              // ex.: "ou 12x de R$ 30,72"
-    encontros: "4",                // SUGESTÃO: um por fase do método
+    encontros: "4",                // SUGESTÃO: um por fase da mentoria
     formato: "em grupo",           // SUGESTÃO
     suporteDiaD: "pelo grupo do WhatsApp",  // SUGESTÃO
     datasConfirmadas: true,        // SUGESTÃO: um encontro por fase (confirmar com o Daniel)
