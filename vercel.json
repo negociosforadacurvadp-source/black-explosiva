@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/promessa.html" }
+  "redirects": [
+    { "source": "/promessa", "destination": "/", "permanent": false },
+    { "source": "/promessa.html", "destination": "/", "permanent": false }
   ]
 }

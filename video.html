@@ -118,19 +118,6 @@ section{padding:clamp(64px,10vw,104px) 0;position:relative}
 .dates b{color:var(--ink)}
 .dates .hot{border-color:var(--red)}
 
-/* primeira dobra só com a promessa */
-.hero-promessa{min-height:min(100svh - 60px,820px);display:grid;align-items:center;padding:clamp(40px,7vw,80px) 0}
-.hero-promessa .wrap{gap:clamp(28px,4vw,48px);max-width:1280px}
-@media (min-width:960px){.hero-promessa .wrap{grid-template-columns:.95fr 1.05fr;text-align:left;justify-items:stretch;align-items:center}.hero-promessa .promessa-txt{justify-items:start}}
-.promessa-txt{display:grid;gap:clamp(18px,2.6vw,26px);justify-items:center}
-.id-metodo{font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2)}
-.logo-hero{width:min(460px,86vw);height:auto}
-.hero-promessa h1{max-width:24ch;font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.2}
-.hero-promessa .sub{max-width:46ch}
-.hero-promessa .btn{padding:0 38px;min-height:60px}
-.promessa-foto{width:100%;max-width:720px;justify-self:center}
-.promessa-foto img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:20px;border:1px solid var(--line-2);box-shadow:0 30px 60px -30px #000}
-.hero-promessa :focus-visible{outline-color:var(--gold-2)}
 /* conteúdo travado até 80% do vídeo */
 html.js #resto.travado{display:none}
 .revisao #resto.travado{display:block}
@@ -266,26 +253,52 @@ html:not(.js) .rv{opacity:1;transform:none}
 <header class="top">
   <div class="wrap">
     <a class="brand gold" href="#inicio">Black Friday Explosiva</a>
-    <div class="countdown"><span>Vendas abrem em</span><b data-cd="d">--</b>d <b data-cd="h">--</b>h <b data-cd="m">--</b>min</div>
-    <a class="btn js-cta js-buy" data-pos="topo" href="#oferta">Quero o método</a>
+    <div class="countdown" data-depois-video hidden><span>Vendas abrem em</span><b data-cd="d">--</b>d <b data-cd="h">--</b>h <b data-cd="m">--</b>min</div>
+    <a class="btn js-cta js-buy" data-pos="topo" href="#oferta" data-depois-video hidden>Quero o método</a>
   </div>
 </header>
 
 <main id="inicio">
-  <!-- 1. PRIMEIRA DOBRA: PROMESSA (versão sem vídeo) -->
-  <section class="hero hero-promessa" aria-labelledby="h1">
+  <!-- 1. PRIMEIRA DOBRA + VSL -->
+  <section class="hero" aria-labelledby="h1">
     <div class="wrap">
-      <div class="promessa-txt">
-        <img class="logo-hero" src="assets/img/logo-black-friday-explosiva.png" alt="Black Friday Explosiva" width="960" height="402" fetchpriority="high">
-        <h1 id="h1">Seu negócio vai passar mais uma Black Friday <em>sem fila na porta?</em></h1>
-        <p class="sub rascunho">Descubra como aumentar em até 50% o faturamento da sua loja durante a Black Friday.</p>
-        <a class="btn js-cta js-buy" data-pos="hero" href="#oferta">Quero aplicar o método</a>
+      <div class="kicker"><span class="tag">Online</span><span>Método Black Friday Explosiva · com Daniel Pereira</span></div>
+      <h1 id="h1">Seu negócio vai passar mais uma Black Friday <em>sem fila na porta?</em></h1>
+      <p class="sub rascunho">Descubra como aumentar em até 50% o faturamento da sua loja durante a Black Friday.</p>
+
+      <div class="player mudo" id="player">
+        <div class="bgblur" aria-hidden="true"></div>
+        <div class="ytbox" id="ytbox" hidden></div>
+        <video id="vsl" playsinline muted autoplay preload="auto" hidden></video>
+        <div class="clique" id="clique" aria-hidden="true"></div>
+        <button class="som" id="som" type="button" aria-label="Clique aqui para ativar o som e assistir do início">
+          <span class="t1">Clique aqui</span>
+          <svg viewBox="0 0 64 48" fill="none" aria-hidden="true"><path d="M8 17h10l14-11v36L18 31H8z" fill="#fff"/><path d="M40 14a14 14 0 0 1 0 20M46 8a22 22 0 0 1 0 32" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/><path d="M6 4l52 40" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
+          <span class="t2">para ativar o som</span>
+        </button>
+        <div class="ctrl" id="ctrl" hidden>
+          <button type="button" id="bt-play" aria-label="Pausar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="ic-play" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
+          <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+          <span class="time" id="time">0:00 / 0:00</span>
+          <button type="button" id="bt-som" aria-label="Desativar som"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path id="ic-som" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button>
+          <button type="button" id="bt-tela" aria-label="Tela cheia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+        </div>
       </div>
-      <div class="promessa-foto"><img src="assets/img/plateia.jpg" alt="Daniel Pereira ensinando para uma sala cheia de empresários" width="1400" height="788"></div>
+
+      <div class="gate" id="gate" aria-live="polite">
+        <div class="gbar" aria-hidden="true"><i id="gbar"></i></div>
+        <p id="gate-txt"><b>Assista ao vídeo:</b> a apresentação completa do método e a condição de hoje aparecem logo abaixo, depois dele.</p>
+      </div>
+
+      <div class="dates">
+        <span class="hot">Vendas a partir de <b>09/11</b></span>
+        <span>Black Friday: <b>27/11</b></span>
+      </div>
     </div>
   </section>
 
-  <div id="resto">
+  <!-- TUDO ABAIXO SÓ ABRE DEPOIS DE 80% DO VÍDEO -->
+  <div id="resto" class="travado">
 
     <!-- 3. PROVA (só com material real) -->
     <section class="alt" aria-labelledby="h-prova" data-pendente="foto/vídeo real da fila + números do Dia D">
@@ -495,7 +508,153 @@ html:not(.js) .rv{opacity:1;transform:none}
   }
   tick(); setInterval(tick, 30000);
 
-  // Versão sem vídeo: a página já abre completa.
+  // ---------- trava: o resto da página abre com X% do vídeo assistido
+  var LIMITE = O.liberarEm || 0.8;
+  var resto = document.getElementById('resto');
+  var gate = document.getElementById('gate'), gbar = document.getElementById('gbar'), gtxt = document.getElementById('gate-txt');
+  var liberado = false;
+
+  function abrir(origemDoDesbloqueio) {
+    if (liberado) return; liberado = true;
+    resto.classList.remove('travado'); resto.classList.add('abrindo');
+    document.querySelectorAll('[data-depois-video]').forEach(function (el) { el.hidden = false; });
+    gate.classList.add('ok'); gbar.style.width = '100%';
+    gtxt.innerHTML = '<b>Pronto!</b> A condição de hoje está liberada logo abaixo. <a href="#oferta" style="color:var(--gold-2);font-weight:700">Ver a oferta ↓</a>';
+    try { localStorage.setItem('bfx_liberado', '1'); } catch (e) {}
+    observarRevelacao();
+    if (origemDoDesbloqueio === 'video') track('video_unlock', { percentual: Math.round(LIMITE * 100) });
+  }
+
+  // Conta segundos realmente assistidos (pular para frente não conta).
+  var vistos = {}, nVistos = 0, marcos = {};
+  function registrar(t, dur) {
+    if (!dur || !isFinite(dur)) return;
+    var k = Math.floor(t * 2);
+    if (!vistos[k]) { vistos[k] = 1; nVistos++; }
+    var p = Math.min(1, nVistos / Math.ceil(dur * 2));
+    [0.25, 0.5, 0.75].forEach(function (m) { if (p >= m && !marcos[m]) { marcos[m] = 1; track('video_progress', { percentual: m * 100 }); } });
+    if (!liberado) {
+      gbar.style.width = Math.round(Math.min(1, p / LIMITE) * 100) + '%';
+      if (p >= LIMITE) abrir('video');
+    }
+  }
+
+  var jaLiberado = false;
+  try { jaLiberado = localStorage.getItem('bfx_liberado') === '1'; } catch (e) {}
+  if (revisao || jaLiberado) abrir('memoria');
+
+  // ---------- player estilo VSL
+  // Começa sozinho e mudo. "Clique aqui para ativar o som" recomeça do início com som.
+  // Só conta tempo assistido COM som; tentativa de adiantar volta ao ponto já assistido.
+  var player = document.getElementById('player'), som = document.getElementById('som'), clique = document.getElementById('clique');
+  var ctrl = document.getElementById('ctrl'), bar = document.getElementById('bar'), time = document.getElementById('time');
+  var btPlay = document.getElementById('bt-play'), btSom = document.getElementById('bt-som'), btTela = document.getElementById('bt-tela');
+  var icPlay = document.getElementById('ic-play'), icSom = document.getElementById('ic-som');
+  var ytId = O.video && O.video.youtubeId;
+  var capa = ytId ? 'https://i.ytimg.com/vi/' + encodeURIComponent(ytId) + '/hqdefault.jpg' : (O.video && O.video.poster || '');
+  player.querySelector('.bgblur').style.backgroundImage = 'url(' + capa + ')';
+  var fmt = function (s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  var api = null;            // { play, pause, paused, cur, dur, muted, mute, unmute, seek }
+  var comSom = false;        // a pessoa já ativou o som (a contagem começa aqui)
+  var maxVisto = 0, ultimo = 0;
+
+  function pintar() {
+    if (!api) return;
+    var c = api.cur(), d = api.dur();
+    bar.style.width = d ? (Math.min(c, d) / d * 100) + '%' : '0';
+    time.textContent = fmt(c) + ' / ' + fmt(d);
+    var pausado = api.paused();
+    player.classList.toggle('paused', pausado);
+    icPlay.setAttribute('d', pausado ? 'M8 5v14l11-7z' : 'M6 5h4v14H6zM14 5h4v14h-4z');
+    btPlay.setAttribute('aria-label', pausado ? 'Reproduzir' : 'Pausar');
+    icSom.style.display = api.muted() ? 'none' : '';
+    btSom.setAttribute('aria-label', api.muted() ? 'Ativar som' : 'Desativar som');
+  }
+
+  // chamado a cada atualização de tempo
+  function vigiar() {
+    if (!api) return;
+    var c = api.cur(), d = api.dur();
+    if (comSom && !api.paused()) {
+      if (c > maxVisto + 1.5) { api.seek(maxVisto); return; }      // tentou adiantar: volta
+      if (c - ultimo >= 0 && c - ultimo < 1.5) maxVisto = Math.max(maxVisto, c);
+      registrar(c, d);
+    }
+    ultimo = c;
+    pintar();
+  }
+
+  function ativarSom() {
+    if (!api) return;
+    comSom = true; maxVisto = 0; ultimo = 0;
+    som.hidden = true; ctrl.hidden = false; player.classList.remove('mudo');
+    api.unmute(); api.seek(0); api.play();
+    track('video_start');
+    setTimeout(pintar, 120);
+  }
+
+  function usarMP4() {
+    var v = document.getElementById('vsl');
+    v.src = O.video.mp4; v.hidden = false; v.muted = true;
+    api = {
+      play: function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); }, pause: function () { v.pause(); }, paused: function () { return v.paused; },
+      cur: function () { return v.currentTime; }, dur: function () { return v.duration || 0; },
+      muted: function () { return v.muted; }, mute: function () { v.muted = !v.muted; }, unmute: function () { v.muted = false; },
+      seek: function (t) { v.currentTime = t; }
+    };
+    v.addEventListener('timeupdate', vigiar);
+    v.addEventListener('seeking', function () { if (comSom && v.currentTime > maxVisto + 1.5) v.currentTime = maxVisto; });
+    ['play', 'pause', 'loadedmetadata', 'volumechange'].forEach(function (e) { v.addEventListener(e, pintar); });
+    v.addEventListener('ended', function () { if (comSom) { registrar(v.duration - 0.1, v.duration); track('video_complete'); } pintar(); });
+    api.play();
+  }
+
+  function usarYouTube() {
+    var box = document.getElementById('ytbox'); box.hidden = false;
+    function criar() {
+      var yt = new YT.Player(box, {
+        videoId: ytId,
+        playerVars: { autoplay: 1, mute: 1, controls: 0, disablekb: 1, modestbranding: 1, rel: 0, playsinline: 1, iv_load_policy: 3, fs: 0 },
+        events: {
+          onReady: function () {
+            api = {
+              play: function () { yt.playVideo(); }, pause: function () { yt.pauseVideo(); },
+              paused: function () { return yt.getPlayerState() !== 1; },
+              cur: function () { return yt.getCurrentTime() || 0; }, dur: function () { return yt.getDuration() || 0; },
+              muted: function () { return yt.isMuted(); }, mute: function () { yt.isMuted() ? yt.unMute() : yt.mute(); setTimeout(pintar, 60); },
+              unmute: function () { yt.unMute(); yt.setVolume(100); }, seek: function (t) { yt.seekTo(t, true); }
+            };
+            yt.mute(); yt.playVideo();
+            setInterval(vigiar, 400);
+          },
+          onStateChange: function (e) {
+            if (e.data === 0 && comSom) { registrar(yt.getDuration() - 0.1, yt.getDuration()); track('video_complete'); }
+            pintar();
+          }
+        }
+      });
+    }
+    if (window.YT && YT.Player) criar();
+    else {
+      window.onYouTubeIframeAPIReady = criar;
+      var s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
+    }
+  }
+
+  if (ytId) usarYouTube(); else usarMP4();
+  som.addEventListener('click', ativarSom);
+  clique.addEventListener('click', function () {
+    if (!api) return;
+    if (!comSom) return ativarSom();
+    api.paused() ? api.play() : api.pause(); setTimeout(pintar, 60);
+  });
+  btPlay.addEventListener('click', function () { if (!api) return; api.paused() ? api.play() : api.pause(); setTimeout(pintar, 60); });
+  btSom.addEventListener('click', function () { if (api) { api.mute(); pintar(); } });
+  btTela.addEventListener('click', function () {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (player.requestFullscreen) player.requestFullscreen();
+    else { var v = document.getElementById('vsl'); if (v.webkitEnterFullscreen) v.webkitEnterFullscreen(); }
+  });
 
   // ---------- revelação e barra móvel (só depois de liberado)
   var io;
@@ -511,8 +670,6 @@ html:not(.js) .rv{opacity:1;transform:none}
     new IntersectionObserver(function (e) { heroFora = !e[0].isIntersecting; sync(); }).observe(hero);
     new IntersectionObserver(function (e) { ofertaVis = e[0].isIntersecting; sync(); }).observe(oferta);
   }
-
-  observarRevelacao();
 
   // ---------- GTM só depois do consentimento (LGPD)
   if (has('gtmId')) {
