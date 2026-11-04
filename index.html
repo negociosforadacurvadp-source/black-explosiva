@@ -257,6 +257,149 @@ html:not(.js) .rv{opacity:1;transform:none}
 .revbar{display:none}
 .revisao .revbar{display:block;position:sticky;top:0;z-index:100;background:var(--red);color:#fff;font:700 .76rem Montserrat,sans-serif;text-align:center;padding:6px 12px}
 </style>
+<!-- Meta Pixel + Eventos — Black Friday Explosiva -->
+<script>
+(function () {
+  var PIXEL_ID = '2161861661077212';
+
+  // ---------- CONFIGURAÇÃO ----------
+  var CFG = {
+    produtoId: 'mentoria-black-explosiva',
+    produtoNome: 'Mentoria Black Friday Explosiva',
+    valor: 97.00,             // preço mostrado na página (bate com o da Herospark)
+    moeda: 'BRL',
+    purchaseNaObrigado: true  // ponha false se a Herospark já dispara o Purchase (evita venda contada em dobro)
+  };
+
+  // Respeita quem recusou cookies no banner da página
+  try { if (localStorage.getItem('bfx_consent') === 'nao') return; } catch (e) {}
+
+  // ---------- Código base do Pixel ----------
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+    t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', PIXEL_ID);
+  fbq('track', 'PageView');
+
+  // ---------- Utilitários ----------
+  var utm = {};
+  try { utm = JSON.parse(sessionStorage.getItem('bfx_utm') || '{}'); } catch (e) {}
+  var qs = new URLSearchParams(location.search);
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) { if (qs.get(k)) utm[k] = qs.get(k); });
+
+  function merge(a, b) { var o = {}, k; for (k in a) o[k] = a[k]; for (k in (b || {})) o[k] = b[k]; return o; }
+  function id(nome) { return nome + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8); } // eventID p/ deduplicar com API de Conversões
+  function padrao(nome, dados) { fbq('track', nome, dados || {}, { eventID: id(nome) }); }
+  function custom(nome, dados) { fbq('trackCustom', nome, merge(utm, dados), { eventID: id(nome) }); }
+  function produto(extra) {
+    return merge({
+      content_name: CFG.produtoNome, content_ids: [CFG.produtoId], content_type: 'product',
+      value: CFG.valor, currency: CFG.moeda
+    }, extra);
+  }
+
+  var caminho = location.pathname.toLowerCase();
+  var ehObrigado = /obrigado/.test(caminho);
+
+  // =====================================================
+  //  PÁGINA DE OBRIGADO  →  Purchase
+  // =====================================================
+  if (ehObrigado) {
+    document.addEventListener('DOMContentLoaded', function () {
+      var teste = qs.get('teste') === '1';
+      if (CFG.purchaseNaObrigado && !teste) {
+        // valor: usa o que a Herospark mandar na URL (se mandar); senão o preço do produto
+        var v = parseFloat(String(qs.get('valor') || qs.get('value') || qs.get('amount') || qs.get('total') || '').replace(',', '.'));
+        var valor = isFinite(v) && v > 0 ? v : CFG.valor;
+        var orderId = qs.get('transaction') || qs.get('order_id') || qs.get('pedido') || qs.get('transaction_id') || '';
+        var chave = 'bfx_purchase_' + (orderId || 'sessao');
+        var jaEnviou = false;
+        try { jaEnviou = !!localStorage.getItem(chave); localStorage.setItem(chave, '1'); } catch (e) {}
+        if (!jaEnviou) {
+          fbq('track', 'Purchase', produto({ value: valor, num_items: 1 }),
+              { eventID: orderId ? 'purchase_' + orderId : id('purchase') });
+        }
+      }
+      custom('ObrigadoView');
+
+      var plat = document.getElementById('plataforma');
+      var grupo = document.getElementById('grupo');
+      if (plat) plat.addEventListener('click', function () { custom('AcessoAreaMembros'); });
+      if (grupo) grupo.addEventListener('click', function () { custom('EntrouGrupoAvisos'); });
+    });
+    return;
+  }
+
+  // =====================================================
+  //  PÁGINA DE VENDAS
+  // =====================================================
+  // 1) ViewContent
+  padrao('ViewContent', produto());
+
+  // 2) Profundidade de rolagem 25/50/75/100%
+  var marcos = { 25: 0, 50: 0, 75: 0, 100: 0 }, ticking = false;
+  function rolagem() {
+    ticking = false;
+    var h = document.documentElement, total = h.scrollHeight - h.clientHeight;
+    if (total <= 0) return;
+    var pct = (window.pageYOffset || h.scrollTop) / total * 100;
+    [25, 50, 75, 100].forEach(function (m) {
+      if (!marcos[m] && pct >= m - 1) { marcos[m] = 1; custom('Rolagem', { porcentagem: m }); }
+    });
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(rolagem); } }, { passive: true });
+
+  // 3) Tempo na página
+  [15, 30, 60, 120].forEach(function (s) { setTimeout(function () { custom('TempoNaPagina', { segundos: s }); }, s * 1000); });
+
+  // 4) Chegou na seção da oferta
+  document.addEventListener('DOMContentLoaded', function () {
+    var oferta = document.getElementById('oferta');
+    if (oferta && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { custom('VerOferta'); io.disconnect(); }
+      }, { threshold: 0.4 });
+      io.observe(oferta);
+    }
+  });
+
+  // 5) FAQ aberto
+  document.addEventListener('toggle', function (e) {
+    var d = e.target;
+    if (d && d.tagName === 'DETAILS' && d.open) {
+      var s = d.querySelector('summary');
+      custom('FAQ_Aberto', { pergunta: s ? s.textContent.trim().slice(0, 100) : '' });
+    }
+  }, true);
+
+  // 6) Clique em QUALQUER botão de compra → AddToCart + InitiateCheckout (+ custom com a posição do botão)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.js-buy');
+    if (!a || !a.getAttribute('href')) return;
+    var pos = a.getAttribute('data-pos') || 'desconhecida';
+
+    padrao('AddToCart', produto({ num_items: 1 }));
+    padrao('InitiateCheckout', produto({ num_items: 1 }));
+    custom('CliqueComprar', { posicao: pos });
+
+    var destino = a.href;
+    var mesmaPagina = destino.split('#')[0] === location.href.split('#')[0];
+    if (mesmaPagina || e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1 || a.target === '_blank') return;
+
+    // dá 300 ms para o pixel enviar antes de sair da página
+    e.preventDefault();
+    var foi = false;
+    function ir() { if (!foi) { foi = true; location.href = destino; } }
+    setTimeout(ir, 300);
+  }, true);
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2161861661077212&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 <div class="revbar" role="note">Modo revisão: página toda aberta · vermelho = falta dado real (escondido do público) · amarelo = confirme o texto</div>
